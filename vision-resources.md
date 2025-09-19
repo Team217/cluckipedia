@@ -134,7 +134,8 @@
   - MOD: 0.2m
   - Size(mm): 15x19.7
 
-![M32076M20](./Assets/Lenses/arducam-m32076m20.jpg | width=100)
+<!-- ![M32076M20](./Assets/Lenses/arducam-m32076m20.jpg | width=100) -->
+<img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m2016zh01.png" width="100" />
 - [M32076M20](https://www.arducam.com/m32076m20-2.html): 220° FOV on PiCam
   - Optical Format: 1/3.2"
   - EFL(mm): 0.76
