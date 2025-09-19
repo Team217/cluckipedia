@@ -23,7 +23,7 @@
   - Use Case: Object Detection
 
 ## Camera Models:
-![ArduCamB0332](Assets/ArduCam B0332/arducam-b0332-1.jpg)
+![ArduCamB0332](./Assets/ArduCam B0332/arducam-b0332-1.jpg)
 - [ArduCam B0332](https://www.arducam.com/arducam-120fps-global-shutter-usb-camera-board-1mp-720p-ov9281-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi.html) | OV9281 ~$50
   - Field of View (FOV): 70 degrees (H)
   - Lens Mount: M12
@@ -134,7 +134,7 @@
   - MOD: 0.2m
   - Size(mm): 15x19.7
 
-![M32076M20](Assets\Lenses\arducam-m32076m20.jpg)
+![M32076M20](./Assets/Lenses/arducam-m32076m20.jpg)
 - [M32076M20](https://www.arducam.com/m32076m20-2.html): 220° FOV on PiCam
   - Optical Format: 1/3.2"
   - EFL(mm): 0.76
