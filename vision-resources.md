@@ -89,7 +89,7 @@
   - Size(mm): 14x17.4
 
 <!-- ![M25360H06](./Assets/Lenses/arducam-m25360h06.jpg) -->
-<img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m25360h06.png" width="200" />
+<img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m25360h06.jpg" width="200" />
 
 - [M25360H06](https://www.arducam.com/m25360h06-2.html): 67° FOV on PiCam
   - Optical Format: 1/2.5"
@@ -101,7 +101,7 @@
   - Size(mm): 14x16.8
 
 <!-- ![M27210H08](./Assets/Lenses/arducam-m27210h08.jpg) -->
-<img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m27210h08.png" width="200" />
+<img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m27210h08.jpg" width="200" />
 
 - [M27210H08](https://www.arducam.com/m27210h08-2.html): 73° FOV on PiCam
   - Optical Format: 1/2.7"
