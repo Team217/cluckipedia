@@ -24,6 +24,7 @@
 
 ## Sensor Models:
 ### OV9281
+Specifications:
 - Image Color: Monochrome (Black & White)
 - Shutter Mode: Global Shutter
 - Resolution: 1 Megapixel (720p)
@@ -31,6 +32,7 @@
 - Use Case: AprilTag Detection
 
 ### OV9782
+Specifications:
 - Image Color: Color
 - Shutter Mode: Global Shutter
 - Resolution: 1 Megapixel (720p)
@@ -38,11 +40,13 @@
 - Use Case: Object Detection
 
 ### AR0135CS
+Specifications:
 - Image Color: Color
 - Shutter Mode: Global Shutter
 - Resolution: 1.2 Megapixel (960p)
 - Frame Rate: 52 Frames per second
 - Use Case: Object Detection
+
 
 ## Camera Models:
 ### [ArduCam B0332](https://www.arducam.com/arducam-120fps-global-shutter-usb-camera-board-1mp-720p-ov9281-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi.html) | OV9281 ~$50
@@ -50,6 +54,7 @@
 <!-- ![M2016ZH01](./Assets/ArduCam B0332/arducam-b0332-1.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/ArduCam B0332/arducam-b0332-1.jpg" width="200" />
 
+Specifications:
 - Field of View (FOV): 70 degrees (H)
 - Lens Mount: M12
 
@@ -58,6 +63,7 @@
 <!-- ![M2016ZH01](./Assets/InnoMaker U20CAM-9281M/innomaker-9281m-3.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/InnoMaker U20CAM-9281M/innomaker-9281m-3.jpg" width="200" />
 
+Specifications:
 - Field of View (FOV): 140 degrees (H)
 - Lens Mount: M12
 
@@ -66,16 +72,19 @@
 <!-- ![M2016ZH01](./Assets/ArduCam B0385/arducam-b0385-1.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/ArduCam B0385/arducam-b0385-1.jpg" width="200" />
 
+Specifications:
 - Field of View (FOV): 70 degrees (H)
 - Lens Mount: M12
 
-### [Allied Vision Alvium 1800 U-120c](https://www.edmundoptics.com/p/Allied-Vision-Alvium-1800-U-120c-13-12MP-S-Mount-USB-31-Color-Camera/42978?gad_source=1&gad_campaignid=13119664528&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJXOe8ENJLFAVuRY7BWkGEp8bWYOKhWRI6bgxAd66MUWJMI1muU7UPBoCaXEQAvD_BwE)
+### [Allied Vision Alvium 1800 U-120c](https://www.alliedvision.com/en/products/alvium-configurator/alvium-1800-u/120/)
 
 <!-- ![AlliedVisionAlvium1800U-120c](./Assets/Allied Vision Alvium 1800 U-120c/allied-vision-1800-u120c.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Allied Vision Alvium 1800 U-120c/allied-vision-1800-u120c.jpg" width="200" />
 
+Specifications:
 - Field of View (FOV): 70 degrees (H)
 - Lens Mount: M12
+- We source ours through [EdmundOptics]((https://www.edmundoptics.com/p/Allied-Vision-Alvium-1800-U-120c-13-12MP-S-Mount-USB-31-Color-Camera/42978?gad_source=1&gad_campaignid=13119664528&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJXOe8ENJLFAVuRY7BWkGEp8bWYOKhWRI6bgxAd66MUWJMI1muU7UPBoCaXEQAvD_BwE))
 
 ## ArduCam Lens Options
 ### [M2016ZH01](https://www.arducam.com/m2016zh01-2.html): 10° FOV on PiCam
@@ -83,6 +92,7 @@
 <!-- ![M2016ZH01](./Assets/Lenses/arducam-m2016zh01.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m2016zh01.png" width="200" />
 
+Specifications:
 - Optical Format: 1/2"
 - EFL(mm): 16
 - BFL(mm): 7.1
@@ -96,6 +106,7 @@
 <!-- ![M2508ZH02](./Assets/Lenses/arducam-m2508zh02.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m2508zh02.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/2.5"
 - EFL(mm): 8
 - BFL(mm): 8.1
@@ -109,6 +120,7 @@
 <!-- ![M2506ZH04](./Assets/Lenses/arducam-m2506zh04.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m2506zh04.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/2.5"
 - EFL(mm): 6
 - BFL(mm): 7.3
@@ -122,6 +134,7 @@
 <!-- ![M25360H06](./Assets/Lenses/arducam-m25360h06.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m25360h06.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/2.5"
 - EFL(mm): 3.6
 - BFL(mm): 5
@@ -135,6 +148,7 @@
 <!-- ![M27210H08](./Assets/Lenses/arducam-m27210h08.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m27210h08.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/2.7"
 - EFL(mm): 2.1
 - BFL(mm): 6.3
@@ -148,6 +162,7 @@
 <!-- ![M40180H13L](./Assets/Lenses/arducam-m40180h13l.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m40180h13l.png" width="200" />
 
+Specifications:
 - Optical Format: 1/4"
 - EFL(mm): 1.8
 - BFL(mm): 3
@@ -161,6 +176,7 @@
 <!-- ![M25170H12](./Assets/Lenses/arducam-m25170h12.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m25170h12.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/2.5"
 - EFL(mm): 1.7
 - BFL(mm): 4.7
@@ -174,6 +190,7 @@
 <!-- ![M25156H14](./Assets/Lenses/arducam-m25156h14.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m25156h14.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/2.5"
 - EFL(mm): 1.56
 - BFL(mm): 4.3
@@ -187,6 +204,7 @@
 <!-- ![M30171H16](./Assets/Lenses/arducam-m30171h16.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m30171h16.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/3"
 - EFL(mm): 1.71
 - BFL(mm): 4.71
@@ -200,6 +218,7 @@
 <!-- ![M32076M20](./Assets/Lenses/arducam-m32076m20.jpg) -->
 <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/Lenses/arducam-m32076m20.jpg" width="200" />
 
+Specifications:
 - Optical Format: 1/3.2"
 - EFL(mm): 0.76
 - BFL(mm): 2
@@ -207,3 +226,31 @@
 - FOV (D/H/V): 222/222/222
 - MOD: 0.2m
 - Size(mm): 16x13.5
+
+
+## Co-Processor Models
+### [OrangePi 5](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5.html)
+ - The main advantage to the OrangePi over the RaspberryPi is the integrated NPU, this allows us to do Machine Learning based object detection.
+
+### [RaspberryPi 5](https://www.raspberrypi.com/products/raspberry-pi-5/)
+
+### [Qualcomm Rubik Pi 3](https://www.thundercomm.com/product/rubik-pi/#versions)
+
+### Misc. Hardware
+- [DC-DC Multi-output Buck Converter](https://www.digikey.com/short/fbzc2rjd)
+- [ArduCam USB C Conversion Kit](https://www.etsy.com/listing/1842851233/arducam-ov9281ov9782-usb-c-converter-pcb)
+- [20" 15 x 15 Charuco Calibration Target](https://www.etsy.com/listing/4369973055/20-15-x-15-charuco-calibration-target)
+- [9x11" 8x8 Charuco Calibration Target](https://www.etsy.com/listing/4369977067/9x11-8x8-charuco-calibration-target)
+
+## Software Tools
+### Vision Software
+- [PhotonVision](https://docs.photonvision.org/en/latest/): Purpose built FRC vision processing OS.
+- [Vimba X SDK](https://www.alliedvision.com/en/products/software/vimba-x-sdk/): Software suite for the Allied Vision cameras.
+
+### SD Card Tools
+- [RaspberryPi Imager](https://www.raspberrypi.com/software/): Install ISO/IMG operating system files to SD cards for co-processor use.
+- [Balena Etcher](https://etcher.balena.io/): Another popular image install tool for SD cards.
+- [SD Formatter](https://www.sdcard.org/downloads/formatter/): SD card formatting tool, handles wiping imaged SD cards better than native windows tools.
+
+### ArduCam Rename Tool
+- [ArduCam Serial Number Tool](https://docs.arducam.com/UVC-Camera/Serial-Number-Tool-Guide/)
