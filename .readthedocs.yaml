@@ -9,12 +9,11 @@ python:
   install:
     - requirements: docs/requirements.txt
     - method: pip
-      path: .
 
 sphinx:
   configuration: docs/source/conf.py
   fail_on_warning: true
 
-  formats:
+formats:
   - pdf
   - epub
