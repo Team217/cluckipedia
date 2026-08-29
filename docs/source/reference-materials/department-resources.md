@@ -21,6 +21,9 @@ These tools are less critical for individual student laptops to have, the Thunde
 - [WPILIB Repository](https://github.com/wpilibsuite/allwpilib): Development repository for WIPLIB.
 
 
+# Java Training Materials:
+- [Jacob's Tutorials](https://training.barrelsmp.net/tutorials/home)
+
 # Text Formatting (Across Platforms)
 - [Discord Flavored Markdown](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline)
 - [GitHub Flavored Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
