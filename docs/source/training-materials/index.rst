@@ -1,8 +1,8 @@
 .. _training-materials:
 
-========
+========================
 Training Materials
-========
+========================
 
 These training materials provide a quick start guide to ThunderChickens programming.
 

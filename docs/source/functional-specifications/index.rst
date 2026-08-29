@@ -1,8 +1,8 @@
 .. _functional-specifications:
 
-========
+================================
 Functional Specifications
-========
+================================
 
 This section of the documentation covers software Functional Specifications used by ThunderChickens for developmentW.
 

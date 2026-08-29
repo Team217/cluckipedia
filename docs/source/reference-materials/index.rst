@@ -1,8 +1,8 @@
 .. _reference-materials:
 
-========
+========================
 Reference Materials
-========
+========================
 
 This reference material serves as a launching point into a variety of topics you may find helpful in your time in the programming department.
 
