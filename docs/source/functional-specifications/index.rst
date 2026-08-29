@@ -1,0 +1,26 @@
+.. _functional-specifications:
+
+========
+Functional Specifications
+========
+
+This section of the documentation covers software Functional Specifications used by ThunderChickens for developmentW.
+
+Functional Specifications are still a work in progress. Below is the list of Specifications that still need definition.
+- Swerve Subsystem
+- Vision Subsystem
+- CANdle/LED Subsystem
+- Pneumatic Subsystem
+- Climber Subsystem (ratchet / one way mechanism).
+
+.. rubric:: Table of contents
+
+.. toctree::
+    :maxdepth: 1
+
+    elevator-func-spec.md
+    flywheel-func-spec.md
+    hood-func-spec.md
+    pivot-func-spec.md
+    roller-func-spec.md
+    turret-func-spec.md
