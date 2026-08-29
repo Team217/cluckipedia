@@ -3,6 +3,6 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "Cluckipedia"
+name = "cluckipedia"
 authors = [{name = "ThunderChickens Programming Department", email = "thunderchickens@gmx.com"}]
 dynamic = ["version", "description"]
