@@ -51,7 +51,7 @@ Specifications:
 ## Camera Models:
 ### [ArduCam B0332](https://www.arducam.com/arducam-120fps-global-shutter-usb-camera-board-1mp-720p-ov9281-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi.html) | OV9281 ~$50
 
-![M2016ZH01](assets\vision-resources-assets\ArduCam B0332\arducam-b0332-1.jpg)
+![M2016ZH01](assets/vision-resources-assets/ArduCam B0332/arducam-b0332-1.jpg)
 <!-- <img src="https://github.com/Team217/cluckipedia/blob/main/Assets/ArduCam B0332/arducam-b0332-1.jpg" width="200" /> -->
 
 Specifications:
