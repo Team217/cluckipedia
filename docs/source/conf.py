@@ -18,6 +18,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     "myst_parser",
+    "sphinxcontrib.mermaid",
 ]
 
 intersphinx_mapping = {
