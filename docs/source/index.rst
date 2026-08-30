@@ -9,7 +9,9 @@ Contents
 --------
 
 .. toctree::
-
+   :maxdepth: 2
+   
+   programming-department-roles.md
    functional-specifications/index
    reference-materials/index
    training-materials/index
