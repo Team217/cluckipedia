@@ -6,7 +6,7 @@ The purpose of this document is to outline the leadership structure of the progr
 
 ## Organization Chart
 
-```Mermaid
+```mermaid
 flowchart TD
 
     A[Mentor Department Lead] --> B[Department Mentor] --> C[Student Department Lead]
