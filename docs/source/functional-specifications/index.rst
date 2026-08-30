@@ -16,7 +16,7 @@ Functional Specifications are still a work in progress. Below is the list of Spe
 .. rubric:: Table of contents
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     Elevator Subsystem <elevator-func-spec.md>
     Flywheel Subsystem <flywheel-func-spec.md>
