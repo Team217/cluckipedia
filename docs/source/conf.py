@@ -36,4 +36,4 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
-myst_fence_as_directive = ["mermaid", "Mermaid"]
+myst_fence_as_directive = ["mermaid"]
