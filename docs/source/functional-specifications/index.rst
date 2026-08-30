@@ -16,11 +16,11 @@ Functional Specifications are still a work in progress. Below is the list of Spe
 .. rubric:: Table of contents
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
-    elevator-func-spec.md
-    flywheel-func-spec.md
-    hood-func-spec.md
-    pivot-func-spec.md
-    roller-func-spec.md
-    turret-func-spec.md
+    Elevator Subsystem <elevator-func-spec.md>
+    Flywheel Subsystem <flywheel-func-spec.md>
+    Hood Subsystem <hood-func-spec.md>
+    Pivot Subsystem <pivot-func-spec.md>
+    Roller Subsystem <roller-func-spec.md>
+    Turret Subsystem <turret-func-spec.md>
