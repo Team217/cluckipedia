@@ -19,22 +19,6 @@ The purpose of this document is to outline the leadership structure of the progr
       C[Student Department Lead] --> G[Scouting Support Manager]
 ```
 
-```{mermaid}
-
-    sequenceDiagram
-      participant Alice
-      participant Bob
-      Alice->John: Hello John, how are you?
-```
-
-```mermaid
-
-    sequenceDiagram
-      participant Alice
-      participant Bob
-      Alice->John: Hello John, how are you?
-```
-
 Outlined below is a brief overview of the roles within the programming department. The goal of this structure is to allow the department to run more effectively as we grow in the technical scope of the department. Year over year the department writes more sophisticated programs to support the needs of the robot and team. With this increase in development work organization of tasks and responsibilities is critical to being successful.
 
 The management of the department is handled by the Mentor Lead and the Student lead. Each lead handles different aspects of the management of the department. The mentor leads job is focused on the long-term direction of the department and the training of the students in the department. The student lead is focused on the development tasks related to the current FRC season and the time management of those tasks.
