@@ -10,7 +10,7 @@
 
 *Figure 1:* Example Git branching with ThunderChickens branch naming applied. 
 
-```mermaid
+```
 ---
 config:
   logLevel: 'debug'
