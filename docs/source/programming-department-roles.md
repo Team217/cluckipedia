@@ -7,17 +7,32 @@ The purpose of this document is to outline the leadership structure of the progr
 ## Organization Chart
 
 ```mermaid
-flowchart TD
 
-    A[Mentor Department Lead] --> B[Department Mentor] --> C[Student Department Lead]
-    A[Mentor Department Lead] --> C[Student Department Lead]
-    C[Student Department Lead] --> D[Robot Systems Lead Developer]
-    D[Robot Systems Lead Developer] --> H[Developers]
-    C[Student Department Lead] --> E[Automation Lead Developer]
-    E[Automation Lead Developer] --> I[Developers]
-    C[Student Department Lead] --> F[Practice Field Manager]
-    C[Student Department Lead] --> G[Scouting Support Manager]
-    
+    flowchart TD
+      A[Mentor Department Lead] --> B[Department Mentor] --> C[Student Department Lead]
+      A[Mentor Department Lead] --> C[Student Department Lead]
+      C[Student Department Lead] --> D[Robot Systems Lead Developer]
+      D[Robot Systems Lead Developer] --> H[Developers]
+      C[Student Department Lead] --> E[Automation Lead Developer]
+      E[Automation Lead Developer] --> I[Developers]
+      C[Student Department Lead] --> F[Practice Field Manager]
+      C[Student Department Lead] --> G[Scouting Support Manager]
+```
+
+```{mermaid}
+
+    sequenceDiagram
+      participant Alice
+      participant Bob
+      Alice->John: Hello John, how are you?
+```
+
+```mermaid
+
+    sequenceDiagram
+      participant Alice
+      participant Bob
+      Alice->John: Hello John, how are you?
 ```
 
 Outlined below is a brief overview of the roles within the programming department. The goal of this structure is to allow the department to run more effectively as we grow in the technical scope of the department. Year over year the department writes more sophisticated programs to support the needs of the robot and team. With this increase in development work organization of tasks and responsibilities is critical to being successful.
