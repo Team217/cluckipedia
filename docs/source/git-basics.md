@@ -9,7 +9,7 @@
 - If creating a folder without defined content, include a `.gitkeep` file so that it can be tracked by git.
 
 *Figure 1:* Example Git branching with ThunderChickens branch naming applied. 
-```mermaid
+```
 ---
 config:
   logLevel: 'debug'
@@ -51,7 +51,6 @@ gitGraph
 	commit
 	checkout "main"
 	merge "comp\\COMP_ID"
-	
 ```
 
 ## Remove Local & Global Branches on VSC

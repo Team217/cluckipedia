@@ -36,4 +36,6 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
+# -- Options for mermaid diagram support.
 myst_fence_as_directive = ["mermaid"]
+mermaid_params = ["-p", "puppeteer-config.json"]
