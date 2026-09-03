@@ -1,8 +1,14 @@
 # Subsystem Functional Specification
 
+[toc]
+
 ## 1 Introduction
 
 Subsystems are one of the primary building blocks we have that allow us to build modular & flexible FRC robot code.
+
+## 1.1 Checklists
+
+As a part of this functional specification, there is a set of accompanying checklists that are intended to serve as a quick reference guide for students to check their development progress on a particular subsystem. These checklists should serve as nothing more than an overview or reference. Refer to this specification document for support in developing a given subsystem.
 
 <br>
 
@@ -20,7 +26,7 @@ Motors provide rotational motion, the specific mechanical design the motor gets 
 
 #### 2.1.2  Pneumatics
 
-Pneumatics are linear motion devices that have two states, extended and retracted. Pneumatics use compressed air to power them. We use unique hardware controllers to drive pneumatics.
+Pneumatics are linear motion devices that have two states, extended and retracted. Pneumatics use compressed air to power them. We use unique hardware controllers to drive pneumatics. There are two types of solenoid, single action or double action. Single action use air pressure to extend out and a spring to retract. Double acting utilize air in both directions. A good way to remember them is single = spring.
 
 #### 2.1.3 Servos
 
@@ -46,7 +52,14 @@ We use cameras for two (2) primary means:
 - AprilTag detection: This allows us to locate ourselves and field elements accurately on the field.
 - ML/Color object detection: This aids us in navigating to game pieces scattered on the field.
 
+#### 2.2.4 Inertial Measurement Unit (IMU)
+
+IMU or Inertial Measurement Unit which is a collection of: Accelerometer, which measures linear acceleration in each axis, Gyroscopes, which measure rotational speed and changes in orientation, and finally Magnetometers or Compass, which measures magnetic fields to help determine absolute heading.
+
+
 ### 2.3 Misc.
+
+For the rest of the hardware that doesn't fit into the usual boxes.
 
 #### 2.3.1 Leds
 
@@ -55,6 +68,8 @@ Leds are visual indicators that help the drive team understand the current state
 <br>
 
 ## 3 Common System Architecture
+
+There's a handful of concepts that are common across all subsystems. While the function of the subsystem my differ each of them needs to support constants, logging, units, system characterization, and logging. This is part of keeping consistency across our ThunderChickens codebase.
 
 ### 3.1 Constants
 
@@ -83,11 +98,11 @@ The constants for a subsystem need to be passed into the subsystem via the const
 
 ### 3.2 Data / Units
 
-It is strongly encouraged to do the conversion from "RPM" or "Rotations" to a meaningful unit that describes the actual real world movement of the mechanism. In the case of an elevator Meters/Feet/Inches would be acceptable. For ThunderChickens codebase we tend to stick with Metric units. Bonus points if this is implemented through the use of the Java Units classes supported in WPILIB. This allows for very easy unit conversion and keeps the units consistent across the codebase.
+It is strongly encouraged to do the conversion from "RPM" or "Rotations" to a meaningful unit that describes the actual real world movement of the mechanism. In the case of a system with a distance measure the primary unit should be meters. Angular units tend to be degrees as they are more human friendly, for math we often convert to radians. If you find working with inches or feet easier for a specific application you may convert from meters within that scope. For ThunderChickens codebase we tend to stick with Metric units. Bonus points if this is implemented through the use of the Java Units classes supported in WPILIB. This allows for very easy unit conversion and keeps the units consistent across the codebase.
 
 ### 3.3 Logging
 
-Logging is the recording of telemetry data, such as motor, sensor, or robot state information to aid in the troubleshooting of the robot. When trying to understand why issues happened on the field, it is critical to have comprehensive logging to properly root cause the issues. The rule of thumb is to err on the side of more logging, we can always cut back or reduce logging in the future. To help get you thinking about what to long. Here's some of the primary data we want to log:
+Logging is the recording of telemetry data, such as motor, sensor, or robot state information to aid in the troubleshooting of the robot. When trying to understand why issues happened on the field, it is critical to have comprehensive logging to properly root cause the issues. The rule of thumb is to err on the side of more logging, we can always cut back or reduce logging in the future. To help get you thinking about what to long. Here's some of the primary data we may want to log:
 - Relative encoder position
 - Relative encoder velocity
 - Control loop setpoint
@@ -103,17 +118,25 @@ Simulation provides a way for us to test our code before we have an actual robot
 
 #### 3.5 SysID Characterization:
 
-SysID or System Identification is a process in which the mechanism runs through a predefined routine to quantify the PID & Feedforward constants for the system. AdvantageKit logging has compatibility with SysID (details [here](https://docs.advantagekit.org/data-flow/sysid-compatibility)). We need to setup the SysID commands & expose them in the subsystem so that we can execute the characterization at a future time when we have the physical mechanism present.
+SysID or System Identification is a process in which the mechanism runs through a predefined routine to quantify the PID & Feedforward constants for the system. AdvantageKit logging has compatibility with SysID (details [here](https://docs.advantagekit.org/data-flow/sysid-compatibility)). We need to setup the SysID commands & expose them in the subsystem so that we can execute the characterization at a future time when we have the physical mechanism present. Building these commands into the subsystem allows us to easily run SysID tests once we have the functional robot in front of us. 
 
 <br>
 
 ## 4 Common System Interfaces
 
+Subsystems implement SubsystemBase, this is a common java interface that all subsystems are built off of. Part of that means there's some methods we can extend to support our subsystem. This section goes into the common components across all subsystems defined in this specification.
+
 ### 4.1 Constructor
 
-Constructors 
+Constructors are the first block of code that runs when you create a java class object. This is where your initialization code is housed. In the case of subsystems this means some level of hardware initialization and configuration. Beyond hardware configuration we have to setup the subsystem to be ready to operate when the robot is enabled. This means setting initial setpoints, homing mechanisms, etc. Setup of simulation will also be included in the constructor, this is typically wrapped in a check to see if the robot is real or simulated.
 
 ### 4.2 Periodic
+
+Periodic is a method called every cycle of the robot. This is typically a 20ms (0.02s) loop time. Think of the periodic function like an integrated `while(true)` loop. We typically put any reoccurring logging, checks, or calculations in this loop. **Caution** should be taken to not put anything computationally heavy in the periodic loop as that can cause overruns & slow the system response down. This periodic method runs on both real and simulated robots.
+
+### 4.3 Simulation Periodic 
+
+Simulation periodic is a method much like the above periodic but it only runs when the robot is being simulated. This section if solely for calculations related to simulated operation of the subsystem. Typically theres at least an `update` method to call.
 
 <br>
 
@@ -121,7 +144,11 @@ Constructors
 
 ### 5.1 Drivebase
 
+All robots need to move on the field. So every robot has some sort of drivebase or drivetrain to provide locomotion to the robot. In FRC these days the predominate drivebase design is Swerve, which provides the most dynamic control of the robot. Swerve is also the most complex drive system. For simple robots we often will utilize a differential drive which is more in line with what you would find on an RC car. There are some other flavors of differential drive robots that we'll touch on briefly in that section. 
+
 #### 5.1.1 Swerve
+
+A swerve drive system is typically made up of four (4) wheel modules mounted in each corner of the drivebase. These wheel modules are able to drive both the wheel itself and pivot the angle / heading of the wheel. This control of each wheels heading when working in tandem with the rest of the wheel modules enables the robot to move vary dynamically on the field & enables the "front" of the robot to become variable. Each wheel module is made up of two (2) motors. One for angle adjustment, and one for drive. Along with the motors, each angle motor uses an absolute encoder for positioning of the module angle. In addition to the 4 modules, the swerve subsystem also is equipped with an IMU / Gyroscope which provides the heading information needed to calculate the wheel positions. 
 
 ##### 5.1.1.1 Theory of Operation
 
@@ -131,7 +158,12 @@ Constructors
 
 ##### 5.1.1.4 References
 
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.1 is on all types of drivebase, it does cover swerve briefly but focuses on older drive styles.
+
+
 #### 5.1.2 Differential Drive
+
+Differential drive is your typical drive system. Two (2) rows of parallel wheels, left and right. They can be commanded forward, backward, or turn left and right. This drive system is cheap, reliable, and simple to execute. The XRP robots we use in training implement a simple differential drive system. These differential drive systems often chain or gear together multiple motors on each side to increase the torque or power behind the wheels.
 
 ##### 5.1.2.1 Theory of Operation
 
@@ -141,11 +173,22 @@ Constructors
 
 ##### 5.1.2.4 References
 
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.1 is on all types of drivebase, lots of different differential drivebase examples.
+
+##### 5.1.2.5 Butterfly
+
+Butterfly drive is a classic ThunderChickens drive system. Most recently we used it back in 2022.
+
+This drive is a riff on the classic adding a pivoting wheel module in each corner. This wheel module integrates a traction wheel and an omni wheel into one module. With the control of a pneumatic solenoid we can switch between the traction and the omni balancing maneuverability and pushing power during a match. 
+
+Additional configuration and methods are needed to setup the pneumatic system.
+
+
 ### 5.2 Motor Based Motion
 
 #### 5.2.1 Elevator - Linear motion.
 
-The elevator subsystem from a hardware level has a few required hardware components as well as a variety of optional hardware to improve reliability and safety of the mechanism.
+Elevators can be one of the most complicated mechanisms to program. The elevator subsystem from a hardware level has a few required hardware components as well as a variety of optional hardware to improve reliability and safety of the mechanism.
 
 ##### 5.2.1.1 Theory of Operation
 
@@ -214,6 +257,22 @@ To improve your depth of knowledge on the construction or operation of elevator 
 ##### 5.2.1.5 Climber - Linear with one way locking.
 
 #### 5.2.2 Flywheel - Velocity control.
+
+A flywheel is a rotational mechanism that spins fast & maintains energy. The most common application of a flywheel in FRC is for shooter wheels. Anytime we have a shooter that has to bring a game object up to speed very quickly a flywheel is the key to doing it. From a software perspective a flywheel is just a velocity controlled motor. 
+
+
+
+
+##### 5.2.2.1 Theory of Operation
+
+##### 5.2.2.2 Architecture
+
+##### 5.2.2.3 Interfaces
+
+##### 5.2.2.4 References
+
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.6.1 is on shooter flywheel design & mechanical concepts.
+
 - Encoder to measure flywheel velocity. Relative encoder.
 - Motor(s) to spin the flywheel.
     - Configure (idle mode, current limits).
@@ -233,15 +292,22 @@ To improve your depth of knowledge on the construction or operation of elevator 
 - Simulation of subsystem.
 - Integration with SysID.
 
-##### 5.2.2.1 Theory of Operation
-
-##### 5.2.2.2 Architecture
-
-##### 5.2.2.3 Interfaces
-
-##### 5.2.2.4 References
 
 #### 5.2.3 Pivot - Angular positioning.
+
+Pivots can be integrated into a wide variety of applications. From a software perspective a pivot is an angular / rotational position control. A motor rotates to & holds at the position. Think of an elbow or a railroad crossing gate.
+
+
+##### 5.2.3.1 Theory of Operation
+
+##### 5.2.3.2 Architecture
+
+##### 5.2.3.3 Interfaces
+
+##### 5.2.3.4 References
+
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.3 is on arm design & mechanical concepts.
+
 - Absolute encoder to track arm position. Seed absolute encoder to the motors relative encoder (at the least on startup).
 - Motor(s) to drive the arm pivot.
     - Configure (idle mode, current limits).
@@ -263,39 +329,15 @@ To improve your depth of knowledge on the construction or operation of elevator 
 - Simulation of subsystem.
 - Integration with SysID. Characterizes motor performance.
 
-
-##### 5.2.3.1 Theory of Operation
-
-##### 5.2.3.2 Architecture
-
-##### 5.2.3.3 Interfaces
-
-##### 5.2.3.4 References
-
 ##### 5.2.3.5 Hood - Unique pivot.
-- Absolute encoder or potentiometer to track hood position.
-- Motor or servo to drive the hood.
-    - Configure (idle mode, current limits).
-    - Configure gear ratio.
-    - If servo take in argument from constructor?
-- Limit switch. Lower limit/home position.
-- Speed controls:
-    - Set-points. Via tunable PID. (Rotations at a minimum ideally real units).
-    - Manual operation.
-- Pass constants object into constructor.
-- Logging via AdvantageKit.
-- Method to check if hood is at a setpoint. onTarget.
-- Motion Profiling (CTRE/Phoenix6 Motion Magic). MaxVelocity & MaxAcceleration.
-- PID basic control. SVA (Static Friction, Velocity, Acceleration) or GVA (Gravity, Velocity, Acceleration) FeedForward Control Loop
-- Optional HW limits. Enable / Disable this functionality.
-    - Redundant limit switches (2 on top, 2 on bottom).
-- Switch from Brake to Coast on disable and vise versa.
-- Java Units Classes (Distance, Angle, Velocity, Etc.).
-- Simulation of subsystem.
-- Integration with SysID. Characterizes motor performance.
+
+- A hood is a variation on a pivot, hoods are used primarily for 
 
 
 ##### 5.2.3.6 Turret - Unique pivot
+
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.7 is on turret design & mechanical concepts.
+
 - Absolute encoder to track position. Seed absolute encoder to the motors relative encoder (at the least on startup).
 - Motor to drive the turret.
     - Configure (idle mode, current limits).
@@ -319,6 +361,9 @@ To improve your depth of knowledge on the construction or operation of elevator 
 
 
 #### 5.2.4 Roller - Open velocity control. 
+
+A roller subsystem is one of the simplest mechanisms to program. It is simply a wheel, roller, belt, conveyor, etc. that runs in an open loop mode. Where we set the speed of the roller between -100% to 100%. This can be via applied output or voltage. We don't need feedback based control loops or any external sensors.
+
 - Motor(s) to drive the roller.
     - Configure (idle mode, current limits).
     - Configure gear ratio.
@@ -340,6 +385,8 @@ To improve your depth of knowledge on the construction or operation of elevator 
 
 ##### 5.2.4.4 References
 
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.5 is on intake roller design & mechanical concepts.
+
 ### 5.3 Servo Based Motion
 
 ##### 5.3.1 Theory of Operation
@@ -349,6 +396,9 @@ To improve your depth of knowledge on the construction or operation of elevator 
 ##### 5.3.3 Interfaces
 
 ##### 5.3.4 References
+
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 4.2 is on servos.
+
 
 ##### 5.3.5 Pivot / Hood
 
@@ -361,6 +411,9 @@ To improve your depth of knowledge on the construction or operation of elevator 
 ##### 5.4.3 Interfaces
 
 ##### 5.4.4 References
+
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 6.6 is on pneumatics.
+
 
 ##### 5.3.5 Gripper
 
@@ -376,6 +429,11 @@ To improve your depth of knowledge on the construction or operation of elevator 
 
 ##### 5.5.1.4 References
 
+- [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 6.4 is on cameras and vision concepts.
+- [PhotonVision](https://photonvision.org/): Primary computer vision system utilized by the ThunderChickens.
+- [Cluckipedia Vision Reference](https://cluck.thunderchickens.org/en/latest/reference-materials/vision-resources.html)
+
+
 #### 5.5.2 Led - Visual feedback system, CANdle.
 
 ##### 5.5.2.1 Theory of Operation
@@ -385,6 +443,13 @@ To improve your depth of knowledge on the construction or operation of elevator 
 ##### 5.5.2.3 Interfaces
 
 ##### 5.5.2.4 References
+
+- [CTRE CANdle Product Page](https://store.ctr-electronics.com/products/candle?srsltid=AfmBOor_ptYSzTNh7f-S45ZTQ4HopVHMj4pnIkfMbmXCX_2FiTsQ6D2e)
+  - [User Manual](https://ctre.download/files/user-manual/CANdle%20User's%20Guide.pdf)
+  - [Phoenix6 Documentation](https://v6.docs.ctr-electronics.com/en/latest/docs/hardware-reference/candle/index.html)
+  - [Bring Up Guide](https://v5.docs.ctr-electronics.com/en/stable/ch12b_BringUpCANdle.html)
+- [CANdle LED Plan Template](https://cluck.thunderchickens.org/en/latest/candle-template.html)
+
 
 <br>
 
@@ -400,13 +465,18 @@ To improve your depth of knowledge on the construction or operation of elevator 
 
 ### 6.5 SubsystemIOHardware: The hardware implementation of the above interface.
 
+### 6.6 References
+
+- [AdvantageKit Website](https://docs.advantagekit.org/)
+- [AdvantageScope Website](https://docs.advantagescope.org/)
+
 <br>
 
 ## 7 Revision History
 
 
-| Date     | Author | Description             |
+| Date       | Author | Description                         |
 | ---------- | ------ | ----------------------------------- |
-| 06/13/2026 | AK   | Initial Release           |
-| 08/26/2026 | AK   | Expansion of document         |
-| 08/30/2026 | AK   | Broaden to include all subsystems   |
+| 06/13/2026 | AK     | Initial Release                     |
+| 08/26/2026 | AK     | Expansion of document               |
+| 08/30/2026 | AK     | Broaden to include all subsystems   |

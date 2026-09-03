@@ -6,12 +6,12 @@ Functional Specifications
 
 This section of the documentation covers software Functional Specifications used by ThunderChickens for developmentW.
 
-Functional Specifications are still a work in progress. Below is the list of Specifications that still need definition.
-- Swerve Subsystem
-- Vision Subsystem
-- CANdle/LED Subsystem
-- Pneumatic Subsystem
-- Climber Subsystem (ratchet / one way mechanism).
+## WIP Checklists:
+- Swerve Checklist
+- Servo Checklist
+- Pneumatic Checklist
+- Vision Checklist
+- LED Checklist
 
 .. rubric:: Table of contents
 
@@ -19,4 +19,13 @@ Functional Specifications are still a work in progress. Below is the list of Spe
     :maxdepth: 5
 
     Subsystem Functional Spec <subsystem-func-spec.md>
-    
+    swerve-checklist.md
+    diff-drive-checklist.md
+    elevator-checklist.md
+    flywheel-checklist.md
+    pivot-checklist.md
+    roller-checklist.md
+    servo-checklist.md
+    pneumatic-checklist.md
+    vision-checklist.md
+    led-checklist.md
