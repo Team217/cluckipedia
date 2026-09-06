@@ -20,15 +20,15 @@ Subsystems at their core are a hardware interface layer for linking motors, actu
 
 Robots move, we have a few primary means of making them do so. THis section covers the most common.
 
-#### 2.1.1 Motors
+### 2.1.1 Motors
 
 Motors provide rotational motion, the specific mechanical design the motor gets integrated into defines how that motors rotational motion will translate to subsystem functionality. Motors a driven by a motor controller. There are two main vendors ThunderChickens uses; CTRE/WCP Kraken motors, REV Neo & Vortex motors.
 
-#### 2.1.2  Pneumatics
+### 2.1.2  Pneumatics
 
 Pneumatics are linear motion devices that have two states, extended and retracted. Pneumatics use compressed air to power them. We use unique hardware controllers to drive pneumatics. There are two types of solenoid, single action or double action. Single action use air pressure to extend out and a spring to retract. Double acting utilize air in both directions. A good way to remember them is single = spring.
 
-#### 2.1.3 Servos
+### 2.1.3 Servos
 
 Servos are small form factor motors with some unique features and limitations. Servos come in two primary types; standard & continuous rotation.
 - Standard servos have a limited rotation, +- 90 to 180 degrees depending on the type. These servos have internal control loops that drive them to their position & hold it there.
@@ -38,21 +38,21 @@ Servos are small form factor motors with some unique features and limitations. S
 
 Sensors are critical for our group, they are what enable us to perform complex robot operations. Below are some of the common sensors we utilize to provide feedback to the subsystems & robot.
 
-#### 2.2.1 Encoders
+### 2.2.1 Encoders
 
 For mechanisms that don't naturally come to rest at their designated *home* position (zero (0) on the encoder). It is highly recommended to utilize an absolute encoder for reliable positioning. A CTRE CANCoder or a REV Through-bore would be suitable options for use. Often times with elevators gravity will bring them back to *home* because of this a relative encoder in the motor is sufficient.
 
-#### 2.2.2 Limit switches
+### 2.2.2 Limit switches
 
 Whenever we have a physical mechanism that moves we often want to protect the larger robot structure from the subsystem moving beyond it's limits. We can utilize software limits on these mechanisms however in the event of an encoder issue we often like to add hardware limit switches as well. These limit switches provide multiple benefits. Firstly, they cut power to motors in the direction of travel when limit switch is depressed. Second, they provide a known location for re-seeding the encoder position. Finally, having multiple redundant limit switches allows for the mechanical or electrical failure of one without compromising the system integrity. For an elevator it is typical to run upper & lower limit switches.
 
-#### 2.2.3 Cameras
+### 2.2.3 Cameras
 
 We use cameras for two (2) primary means:
 - AprilTag detection: This allows us to locate ourselves and field elements accurately on the field.
 - ML/Color object detection: This aids us in navigating to game pieces scattered on the field.
 
-#### 2.2.4 Inertial Measurement Unit (IMU)
+### 2.2.4 Inertial Measurement Unit (IMU)
 
 IMU or Inertial Measurement Unit which is a collection of: Accelerometer, which measures linear acceleration in each axis, Gyroscopes, which measure rotational speed and changes in orientation, and finally Magnetometers or Compass, which measures magnetic fields to help determine absolute heading.
 
@@ -61,7 +61,7 @@ IMU or Inertial Measurement Unit which is a collection of: Accelerometer, which 
 
 For the rest of the hardware that doesn't fit into the usual boxes.
 
-#### 2.3.1 Leds
+### 2.3.1 Leds
 
 Leds are visual indicators that help the drive team understand the current state of the robot. In addition to that we can use them to aid in debugging in the pits. The CANdle is the primary LED controller we use in FRC.
 
@@ -116,7 +116,7 @@ For all ThunderChickens codebases, unless otherwise explicitly defined, logging 
 
 Simulation provides a way for us to test our code before we have an actual robot to deploy to. With proper simulation support we can test core subsystem functionality, command sequencing, triggers, & more all before we have hardware in front of us. At a minimum every subsystem with at least one motor should be set up to simulate that motor. Utilizing the DCMotorSim object is a good starting point. Beyond that simulation of additional hardware, such as limit switches, external encoders, etc. is encouraged time permitting. Most if not all motor vendors have some level of simulation support baked into their software ecosystems.
 
-#### 3.5 SysID Characterization:
+### 3.5 SysID Characterization:
 
 SysID or System Identification is a process in which the mechanism runs through a predefined routine to quantify the PID & Feedforward constants for the system. AdvantageKit logging has compatibility with SysID (details [here](https://docs.advantagekit.org/data-flow/sysid-compatibility)). We need to setup the SysID commands & expose them in the subsystem so that we can execute the characterization at a future time when we have the physical mechanism present. Building these commands into the subsystem allows us to easily run SysID tests once we have the functional robot in front of us. 
 
@@ -146,36 +146,36 @@ Simulation periodic is a method much like the above periodic but it only runs wh
 
 All robots need to move on the field. So every robot has some sort of drivebase or drivetrain to provide locomotion to the robot. In FRC these days the predominate drivebase design is Swerve, which provides the most dynamic control of the robot. Swerve is also the most complex drive system. For simple robots we often will utilize a differential drive which is more in line with what you would find on an RC car. There are some other flavors of differential drive robots that we'll touch on briefly in that section. 
 
-#### 5.1.1 Swerve
+### 5.1.1 Swerve
 
 A swerve drive system is typically made up of four (4) wheel modules mounted in each corner of the drivebase. These wheel modules are able to drive both the wheel itself and pivot the angle / heading of the wheel. This control of each wheels heading when working in tandem with the rest of the wheel modules enables the robot to move vary dynamically on the field & enables the "front" of the robot to become variable. Each wheel module is made up of two (2) motors. One for angle adjustment, and one for drive. Along with the motors, each angle motor uses an absolute encoder for positioning of the module angle. In addition to the 4 modules, the swerve subsystem also is equipped with an IMU / Gyroscope which provides the heading information needed to calculate the wheel positions. 
 
-##### 5.1.1.1 Theory of Operation
+#### 5.1.1.1 Theory of Operation
 
-##### 5.1.1.2 Architecture
+#### 5.1.1.2 Architecture
 
-##### 5.1.1.3 Interfaces
+#### 5.1.1.3 Interfaces
 
-##### 5.1.1.4 References
+#### 5.1.1.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.1 is on all types of drivebase, it does cover swerve briefly but focuses on older drive styles.
 
 
-#### 5.1.2 Differential Drive
+### 5.1.2 Differential Drive
 
 Differential drive is your typical drive system. Two (2) rows of parallel wheels, left and right. They can be commanded forward, backward, or turn left and right. This drive system is cheap, reliable, and simple to execute. The XRP robots we use in training implement a simple differential drive system. These differential drive systems often chain or gear together multiple motors on each side to increase the torque or power behind the wheels.
 
-##### 5.1.2.1 Theory of Operation
+#### 5.1.2.1 Theory of Operation
 
-##### 5.1.2.2 Architecture
+#### 5.1.2.2 Architecture
 
-##### 5.1.2.3 Interfaces
+#### 5.1.2.3 Interfaces
 
-##### 5.1.2.4 References
+#### 5.1.2.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.1 is on all types of drivebase, lots of different differential drivebase examples.
 
-##### 5.1.2.5 Butterfly
+#### 5.1.2.5 Butterfly
 
 Butterfly drive is a classic ThunderChickens drive system. Most recently we used it back in 2022.
 
@@ -186,15 +186,15 @@ Additional configuration and methods are needed to setup the pneumatic system.
 
 ### 5.2 Motor Based Motion
 
-#### 5.2.1 Elevator - Linear motion.
+### 5.2.1 Elevator - Linear motion.
 
 Elevators can be one of the most complicated mechanisms to program. The elevator subsystem from a hardware level has a few required hardware components as well as a variety of optional hardware to improve reliability and safety of the mechanism.
 
-##### 5.2.1.1 Theory of Operation
+#### 5.2.1.1 Theory of Operation
 
 Elevators are linear mechanisms, this means they move in one axis / direction. This is often vertical movement to pick up game elements from the ground and go score them. Elevators can have multiple stages, the more stages you have the higher maximum extension you can achieve, at the cost of a wider footprint. For FRC robots we typically have between 1 and 3 stages. The Elevator here is a single stage and has roughly 33" of vertical lift.
 
-##### 5.2.1.2 Architecture
+#### 5.2.1.2 Architecture
 
 The core functionality of the elevator is as follows:
 - Elevator mechanisms require motors to provide the lift. Depending on the demands of the game this could be one or two motors. The subsystem should be able to easily switch between the two different configurations. Motor type is typically determined in the first weeks of a competition season. For a *default* subsystem the recommendation would be to implement the system using the KrakenX60 motor controller the TalonFX.
@@ -228,14 +228,14 @@ To expand the capabilities and usability of our subsystems there are a number of
 
 - Elevator homing sequence Command. On initialization the elevator should have the capability to home itself. Run it down at a slow power level until it either hits a lower limit or the current spikes indicating the elevator has hit a physical barrier.
 
-##### 5.2.1.3 Interfaces
+#### 5.2.1.3 Interfaces
 
-###### 5.2.1.3.1 Internal interfaces
+##### 5.2.1.3.1 Internal interfaces
 
 - update PID/FF: Internal method to update the motor controller with the logged tunable values.
 - drive functionality: Internal method to control the motor controller. This method should be the final step that checks HW/SW limits before commanding the motor. Commands should call this method to drive the mechanism, rather than attempting to command the motor directly.
 
-###### 5.2.1.3.2 External interfaces
+##### 5.2.1.3.2 External interfaces
 
 - Command for manual control of the elevator.
 - Command for position setpoint control of the elevator.
@@ -244,7 +244,7 @@ To expand the capabilities and usability of our subsystems there are a number of
 - Getter if the elevator has reached its setpoint target.
 - Getter for elevator limits.
 
-##### 5.2.1.4 References
+#### 5.2.1.4 References
 
 To improve your depth of knowledge on the construction or operation of elevator mechanisms in FIRST, the following resources provide a launching point.
 
@@ -254,22 +254,22 @@ To improve your depth of knowledge on the construction or operation of elevator 
 - [FIRST Education: Extenders](https://www.firstinspires.org/hubfs/lms/frc-guided-experience/m2/l4-extenders-lift-reach-climb-pdf.pdf?hsLang=en): Overview of different lift styles, including elevators.
 - [Elevator Control Loop Tuning](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/tuning-elevator.html): Motion Profiler for Elevator applications.
 
-##### 5.2.1.5 Climber - Linear with one way locking.
+#### 5.2.1.5 Climber - Linear with one way locking.
 
-#### 5.2.2 Flywheel - Velocity control.
+### 5.2.2 Flywheel - Velocity control.
 
 A flywheel is a rotational mechanism that spins fast & maintains energy. The most common application of a flywheel in FRC is for shooter wheels. Anytime we have a shooter that has to bring a game object up to speed very quickly a flywheel is the key to doing it. From a software perspective a flywheel is just a velocity controlled motor. 
 
 
 
 
-##### 5.2.2.1 Theory of Operation
+#### 5.2.2.1 Theory of Operation
 
-##### 5.2.2.2 Architecture
+#### 5.2.2.2 Architecture
 
-##### 5.2.2.3 Interfaces
+#### 5.2.2.3 Interfaces
 
-##### 5.2.2.4 References
+#### 5.2.2.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.6.1 is on shooter flywheel design & mechanical concepts.
 
@@ -293,18 +293,18 @@ A flywheel is a rotational mechanism that spins fast & maintains energy. The mos
 - Integration with SysID.
 
 
-#### 5.2.3 Pivot - Angular positioning.
+### 5.2.3 Pivot - Angular positioning.
 
 Pivots can be integrated into a wide variety of applications. From a software perspective a pivot is an angular / rotational position control. A motor rotates to & holds at the position. Think of an elbow or a railroad crossing gate.
 
 
-##### 5.2.3.1 Theory of Operation
+#### 5.2.3.1 Theory of Operation
 
-##### 5.2.3.2 Architecture
+#### 5.2.3.2 Architecture
 
-##### 5.2.3.3 Interfaces
+#### 5.2.3.3 Interfaces
 
-##### 5.2.3.4 References
+#### 5.2.3.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.3 is on arm design & mechanical concepts.
 
@@ -329,12 +329,12 @@ Pivots can be integrated into a wide variety of applications. From a software pe
 - Simulation of subsystem.
 - Integration with SysID. Characterizes motor performance.
 
-##### 5.2.3.5 Hood - Unique pivot.
+#### 5.2.3.5 Hood - Unique pivot.
 
 - A hood is a variation on a pivot, hoods are used primarily for 
 
 
-##### 5.2.3.6 Turret - Unique pivot
+#### 5.2.3.6 Turret - Unique pivot
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.7 is on turret design & mechanical concepts.
 
@@ -360,7 +360,7 @@ Pivots can be integrated into a wide variety of applications. From a software pe
 - Chinese Remainder Theorem (CRT) dual encoder position tracking.
 
 
-#### 5.2.4 Roller - Open velocity control. 
+### 5.2.4 Roller - Open velocity control. 
 
 A roller subsystem is one of the simplest mechanisms to program. It is simply a wheel, roller, belt, conveyor, etc. that runs in an open loop mode. Where we set the speed of the roller between -100% to 100%. This can be via applied output or voltage. We don't need feedback based control loops or any external sensors.
 
@@ -377,72 +377,72 @@ A roller subsystem is one of the simplest mechanisms to program. It is simply a 
 - Integration with SysID. Characterizes motor performance.
 
 
-##### 5.2.4.1 Theory of Operation
+#### 5.2.4.1 Theory of Operation
 
-##### 5.2.4.2 Architecture
+#### 5.2.4.2 Architecture
 
-##### 5.2.4.3 Interfaces
+#### 5.2.4.3 Interfaces
 
-##### 5.2.4.4 References
+#### 5.2.4.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 5.5 is on intake roller design & mechanical concepts.
 
 ### 5.3 Servo Based Motion
 
-##### 5.3.1 Theory of Operation
+#### 5.3.1 Theory of Operation
 
-##### 5.3.2 Architecture
+#### 5.3.2 Architecture
 
-##### 5.3.3 Interfaces
+#### 5.3.3 Interfaces
 
-##### 5.3.4 References
+#### 5.3.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 4.2 is on servos.
 
 
-##### 5.3.5 Pivot / Hood
+#### 5.3.5 Pivot / Hood
 
 ### 5.4 Pneumatic based
 
-##### 5.4.1 Theory of Operation
+#### 5.4.1 Theory of Operation
 
-##### 5.4.2 Architecture
+#### 5.4.2 Architecture
 
-##### 5.4.3 Interfaces
+#### 5.4.3 Interfaces
 
-##### 5.4.4 References
+#### 5.4.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 6.6 is on pneumatics.
 
 
-##### 5.3.5 Gripper
+#### 5.3.5 Gripper
 
 ### 5.5 Specialty
 
-#### 5.5.1 Vision - Camera systems & pose estimation.
+### 5.5.1 Vision - Camera systems & pose estimation.
 
-##### 5.5.1.1 Theory of Operation
+#### 5.5.1.1 Theory of Operation
 
-##### 5.5.1.2 Architecture
+#### 5.5.1.2 Architecture
 
-##### 5.5.1.3 Interfaces
+#### 5.5.1.3 Interfaces
 
-##### 5.5.1.4 References
+#### 5.5.1.4 References
 
 - [NASA Robotics Design Guide](https://robotics.nasa.gov/nasa-rap-robotics-design-guide/): Section 6.4 is on cameras and vision concepts.
 - [PhotonVision](https://photonvision.org/): Primary computer vision system utilized by the ThunderChickens.
 - [Cluckipedia Vision Reference](https://cluck.thunderchickens.org/en/latest/reference-materials/vision-resources.html)
 
 
-#### 5.5.2 Led - Visual feedback system, CANdle.
+### 5.5.2 Led - Visual feedback system, CANdle.
 
-##### 5.5.2.1 Theory of Operation
+#### 5.5.2.1 Theory of Operation
 
-##### 5.5.2.2 Architecture
+#### 5.5.2.2 Architecture
 
-##### 5.5.2.3 Interfaces
+#### 5.5.2.3 Interfaces
 
-##### 5.5.2.4 References
+#### 5.5.2.4 References
 
 - [CTRE CANdle Product Page](https://store.ctr-electronics.com/products/candle?srsltid=AfmBOor_ptYSzTNh7f-S45ZTQ4HopVHMj4pnIkfMbmXCX_2FiTsQ6D2e)
   - [User Manual](https://ctre.download/files/user-manual/CANdle%20User's%20Guide.pdf)
@@ -472,268 +472,268 @@ A roller subsystem is one of the simplest mechanisms to program. It is simply a 
 
 <br>
 
-### 7 Glossary
+## 7 Glossary
 
 [**A**](#a) | [B](#b) | [**C**](#c) | [**D**](#d) | [**E**](#e) | [**F**](#f) | [**G**](#g) | [**H**](#h) | [**I**](#i) | [**J**](#j) | [**K**](#k) | [**L**](#l) | [**M**](#m) | [**N**](#n) | [O](#o) | [**P**](#p) | [Q](#q) | [**R**](#r) | [**S**](#s) | [**T**](#t) | [**U**](#u) | [**V**](#v) | [**W**](#w) | [X](#x) | [Y](#y) | [Z](#z)
 
-#### A
+### A
 
-##### Absolute Encoder
+#### Absolute Encoder
 An encoder that remembers its position after loss of power. Record an initial zero (0) reference point. [CANCoder](#cancoder) and [Through-bore](#through-bore-encoder) are both common types of absolute encoders.
 
-##### AdvantageKit
+#### AdvantageKit
 A logging and telemetry framework developed and popularized by Mechanical Advantage. Primarily used by ThunderChickens for the logging utilities. [AdvantageKit Website](https://docs.advantagekit.org/)
 
-##### AdvantageScope
+#### AdvantageScope
 A visualization and analysis tool used to review data recorded by AdvantageKit & other logging methods. [AdvantageScope Website](https://docs.advantagescope.org/)
 
-##### AprilTag
+#### AprilTag
 A visual fiducial marker used by robot vision systems for localization and field positioning. [More AprilTag information.](https://docs.wpilib.org/en/stable/docs/software/vision-processing/apriltag/apriltag-intro.html)
 
-#### C
+### C
 
-##### CAN Bus
+#### CAN Bus
 A communication network used by robot devices such as motor controllers, sensors, and LED controllers.
 
-##### CANCoder
+#### CANCoder
 A [CTRE](#ctre) absolute encoder commonly used for rotational position feedback. This is a [CAN](#can-bus) based sensor.
 
-##### CANdle
+#### CANdle
 A [CTRE](#ctre) LED controller used to manage robot lighting and visual feedback systems. This is a [CAN](#can-bus) based sensor.
 
-##### Characterization
+#### Characterization
 The process of measuring a mechanism's behavior to derive control-loop parameters such as PID or Feedforward constants.
 
-##### Constructor
+#### Constructor
 The initialization method of a Java class where subsystem hardware configuration, setup, and initialization occur.
 
-##### Continuous Rotation Servo
+#### Continuous Rotation Servo
 A servo that behaves like a standard motor, rotating continuously in either direction rather than holding a specific position.
 
-##### Co-processor
+#### Co-processor
 A secondary computer used for some purpose built compute task on the robot. Typically for vision processing.
 
-##### CTRE
+#### CTRE
 [Cross The Road Electronics](https://store.ctr-electronics.com/), a manufacturer of FRC control system components including TalonFX controllers, CANcoders, and CANdles.
 
-#### D
+### D
 
-##### DCMotorSim
+#### DCMotorSim
 A WPILib simulation utility used to model motor behavior in robot simulations.
 
-##### Differential Drive
+#### Differential Drive
 A drivetrain consisting of independently controlled left and right wheel sets used for basic robot movement. Think tank drive or RC car.
 
-##### Double-Acting Solenoid
+#### Double-Acting Solenoid
 A pneumatic actuator configuration that uses air pressure for both extension and retraction.
 
-##### Driver Station
+#### Driver Station
 The FRC Driver Station is a combination of laptop, game controllers, and software. When combined together to control the robot. For software information see [Driver Station](https://docs.wpilib.org/en/stable/docs/software/driverstation/index.html) on the WPILib documentation.
 
-#### E
+### E
 
-##### Elevator
+#### Elevator
 A linear motion subsystem that moves linearly, commonly used to lift or position game elements.
 
-##### Encoder
+#### Encoder
 A sensor that measures rotational position and velocity. Motors have an integrated [Relative Encoder](#relative-encoder).
 
-#### F
+### F
 
-##### Feedforward Controller
+#### Feedforward Controller
 A control strategy that predicts the output required to achieve desired motion, often combined with PID control.
 
-##### Flywheel
+#### Flywheel
 A rotational mechanism used to store kinetic energy and provide consistent velocity, commonly used in shooter systems.
 
-##### FRC
+#### FRC
 [FIRST Robotics Competition](https://www.firstinspires.org/programs/frc/), the robotics program for which the subsystem architecture is intended.
 
-#### G
+### G
 
-##### Gear Ratio
+#### Gear Ratio
 The relationship between motor rotation and mechanism movement. Programming uses this value for unit conversion to go from [Rotations](#rotations) to a real world unit.
 
-##### Gyroscope
+#### Gyroscope
 A sensor that measures rotational velocity and orientation changes. We use these to track the heading of the robot.
 
-#### H
+### H
 
-##### Hardware Limit Switch
+#### Hardware Limit Switch
 A physical switch used to prevent a mechanism from moving beyond safe operating limits.
 
-##### Home Position
+#### Home Position
 A known reference position used to establish subsystem zero (0).
 
-##### Homing
+#### Homing
 The process of moving a mechanism to a known position to establish accurate position tracking. Typically encoders are zeroed after homing.
 
-#### I
+### I
 
-##### IMU (Inertial Measurement Unit)
+#### IMU (Inertial Measurement Unit)
 A sensor package consisting of accelerometers, gyroscopes, and often magnetometers used to track robot orientation and motion.
 
-##### Interface
+#### Interface
 A software component defining common methods and data interactions between subsystem layers.
 
-#### J
+### J
 
-##### Java Units Classes
+#### Java Units Classes
 WPILib-provided classes that enforce consistent engineering units such as meters, degrees, and velocities.
 
-#### K
+### K
 
-##### KrakenX44
+#### KrakenX44
 High-performance motors developed by [WestCoast Products](#westcoast-products). Powered by the [RalonFX](#talonfx). See [product page](https://wcproducts.com/products/kraken) for more information. 
 
-##### KrakenX60
+#### KrakenX60
 High-performance motors developed by [WestCoast Products](#westcoast-products). Powered by the [RalonFX](#talonfx). See [product page](https://wcproducts.com/products/kraken) for more information.
 
-#### L
+### L
 
-##### LED
+#### LED
 Light Emitting Diode devices used for driver feedback, robot diagnostics, and status indication.
 
-##### Limit Switch
+#### Limit Switch
 A sensor that detects a mechanism reaching a predefined physical boundary. See [Hardware Limit Switch](#hardware-limit-switch).
 
-##### Logging
+#### Logging
 The process of recording robot telemetry and operational data for analysis and debugging.
 
-##### LoggedTunableNumber
+#### LoggedTunableNumber
 A utility that allows a double to be modified over [NetworkTables](#networktables) often via [AdvantageScope](#advantagescope). The changes to these values is logged for future analysis.
 
-#### M
+### M
 
-##### Magnetometer
+#### Magnetometer
 A sensor used to measure magnetic fields, can be used to determine an accurate heading.
 
-##### MaxMotion
+#### MaxMotion
 REV Robotics motion profiling implementation. See [MAXMotion Position Control](https://docs.revrobotics.com/revlib/spark/closed-loop/maxmotion-position-control) for more information.
 
-##### Motion Magic
+#### Motion Magic
 CTRE's onboard motion profiling control mode. See [Motion Magic Controls](https://v6.docs.ctr-electronics.com/en/2025/docs/api-reference/device-specific/talonfx/motion-magic.html) for more information.
 
-##### Motion Profiling
+#### Motion Profiling
 A control technique that constrains velocity and acceleration to achieve smoother movement.
 
-##### Motor Controller
+#### Motor Controller
 An electronic device that regulates motor operation, speed, position, or torque.
 
-#### N
+### N
 
-##### Neo 1.1
+#### Neo 1.1
 A first generation brushless motor produced by REV Robotics. Good mid-tier motor for medium torque application. See the REV [product page](https://www.revrobotics.com/rev-21-1650/) for more information on the motor. This motor requires a separate [Motor Controller](#motor-controller) to operate. ThunderChickens typically uses a REV [SparkMax](#sparkmax) as our preferred motor controller.
 
-##### Neo 2.0
+#### Neo 2.0
 A second generation brushless motor produced by REV Robotics. Good mid-tier motor for medium torque application. See the REV [product page](https://www.revrobotics.com/rev-21-1653) for more information on the motor. This motor requires a separate [Motor Controller](#motor-controller) to operate. ThunderChickens typically uses a REV [SparkMax](#sparkmax) as our preferred motor controller.
 
-##### Neo 550
+#### Neo 550
 A small form factor brushless motor produced by REV Robotics. Tiny low torque, high speed motor useful for weight savings and space saving applications. See the REV [product page](https://www.revrobotics.com/rev-21-1651/) for more information on the motor. This motor requires a separate [Motor Controller](#motor-controller) to operate. ThunderChickens typically uses a REV [SparkMax](#sparkmax) as our preferred motor controller.
 
-##### NetworkTables
+#### NetworkTables
 NetworkTables is a publish-subscribe communication system built over Ethernet to share data between the robot, [Co-processor](#co-processor), [Driver Station](#driver-station) and more. See [What is NetworkTables](https://docs.wpilib.org/en/stable/docs/software/networktables/networktables-intro.html) for more information.
 
-#### P
+### P
 
-##### PID Controller
+#### PID Controller
 A feedback control algorithm using Proportional, Integral, and Derivative terms to regulate system performance. See [Introduction to PID](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html) for more information.
 
-##### Pneumatics
+#### Pneumatics
 A motion system powered by compressed air, providing strictly linear movement. Use is often discouraged due to the weight & components required to setup a pneumatic system.
 
-##### Position Control
+#### Position Control
 A control strategy that drives a mechanism to a desired target position.
 
-##### Periodic
+#### Periodic
 A subsystem method called every robot cycle, typically every 20 milliseconds.
 
-##### PhotonVision
+#### PhotonVision
 A robot vision platform used for camera processing and pose estimation. See [PhotonVision](https://photonvision.org/) website for more information.
 
-##### Pivot
+#### Pivot
 A rotational positioning subsystem that controls angular movement.
 
-#### R
+### R
 
-##### Relative Encoder
+#### Relative Encoder
 An encoder that tracks movement relative to a starting point but does not retain absolute position after power cycling. Starts at a zero (0) position, which is whatever position the motor is in when the robot is turned on.
 
-##### REV Robotics
+#### REV Robotics
 [REV Robotics](https://www.revrobotics.com/) is a robotics supplier providing motors, motor controllers, encoders, and related control hardware.
 
-##### Robot Controller
+#### Robot Controller
 The central computing device that executes robot code and coordinates subsystem behavior. Historically it has been the NI RoboRio. Starting with the 2027 season it will be the Limelight SystemCore.
 
-#### S
+### S
 
-##### Sensor
+#### Sensor
 A device that provides feedback about robot or mechanism state. [Encoders](#encoder), [Limit Switches](#limit-switch), or [Inertial Measurement Units](#imu-inertial-measurement-unit) are common sensors in FRC. 
 
-##### Servo
+#### Servo
 A compact actuator designed for position or continuous rotation control. Good for low speed, low torque applications. Shooter hoods, climber ratchet pawls are some examples.
 
-##### Simulation
+#### Simulation
 A software environment for testing robot code without physical hardware. [WPILIB](#wpilib) supports an integrated simulation environment via VS Code.
 
-##### Simulation Periodic
+#### Simulation Periodic
 A subsystem method executed only during robot simulation.
 
-##### Single-Acting Solenoid
+#### Single-Acting Solenoid
 A pneumatic actuator that uses air pressure in one direction and a spring for return motion.
 
-##### Software Limit
+#### Software Limit
 A motion boundary enforced through software typically using encoder feedback.
 
-##### SparkMax
+#### SparkMax
 
 A [Motor Controller](#motor-controller) designed by [REV Robotics](#rev-robotics). This is ThunderChickens preferred motor controller. See [product page](https://www.revrobotics.com/rev-11-2158) for more information.
 
-##### Subsystem
+#### Subsystem
 A modular hardware and software component that encapsulates a specific robot function. Such as Elevator, Pivot, Roller.
 
-##### SubsystemBase
+#### SubsystemBase
 The WPILib base class used as the foundation for robot subsystems.
 
-##### Swerve Drive
+#### Swerve Drive
 A drivetrain in which each wheel module independently controls wheel speed and steering angle. Fast becoming the most popular drivebase, but also one of the most complicated steering methods.
 
-##### SysID
+#### SysID
 WPILib's System Identification framework used for mechanism [Characterization](#characterization) and control tuning.
 
-#### T
+### T
 
-##### TalonFX
+#### TalonFX
 A [CTRE](#ctre) [motor controller](#motor-controller) physically integrated into Kraken motors. Previously used in the Falcon 500 motors produced by VEX Robotics. See [product page](https://wcproducts.com/products/kraken) for more information.
 
-##### Through-Bore Encoder
+#### Through-Bore Encoder
 A type of encode that fits directly on a hex shaft. Typically a type of [Absolute Encoder](#absolute-encoder).
 
-##### Tunable Constant
+#### Tunable Constant
 A configurable value that can be adjusted live during robot operation. See [LoggedTunableNumber](#loggedtunablenumber) for ThunderChickens typical implementation.
 
-#### U
+### U
 
-##### Units Conversion
+#### Units Conversion
 The process of translating raw sensor values into meaningful engineering units such as meters or degrees.
 
-#### V
+### V
 
-##### Velocity Control
+#### Velocity Control
 A control mode that regulates the speed of a mechanism.
 
-##### Vision System
+#### Vision System
 A camera-based subsystem used for localization, target tracking, and object detection.
 
-##### Vortex
+#### Vortex
 A brushless motor produced by [REV Robotics](#rev-robotics). This motor is unique in that we can change the shaft type or put a hex shaft through the motor. See [product page](https://www.revrobotics.com/rev-21-1652) for more information.
 
-#### W
+### W
 
-##### WestCoast Products
+#### WestCoast Products
 [WestCoast Products](https://wcproducts.com/) is a supplier of mechanical, structural, and electrical components tailored for FIRST Robotics Competition (FRC) teams.
 
-##### WPILib
+#### WPILib
 The primary software library and framework used for FRC robot programming. See [WPILib](https://docs.wpilib.org/en/stable/index.html) website for more information.
 
 ## 8 Revision History
