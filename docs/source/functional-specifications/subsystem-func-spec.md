@@ -472,7 +472,271 @@ A roller subsystem is one of the simplest mechanisms to program. It is simply a 
 
 <br>
 
-## 7 Revision History
+### 7 Glossary
+
+[**A**](#a) | [B](#b) | [**C**](#c) | [**D**](#d) | [**E**](#e) | [**F**](#f) | [**G**](#g) | [**H**](#h) | [**I**](#i) | [**J**](#j) | [**K**](#k) | [**L**](#l) | [**M**](#m) | [**N**](#n) | [O](#o) | [**P**](#p) | [Q](#q) | [**R**](#r) | [**S**](#s) | [**T**](#t) | [**U**](#u) | [**V**](#v) | [**W**](#w) | [X](#x) | [Y](#y) | [Z](#z)
+
+#### A
+
+##### Absolute Encoder
+An encoder that remembers its position after loss of power. Record an initial zero (0) reference point. [CANCoder](#cancoder) and [Through-bore](#through-bore-encoder) are both common types of absolute encoders.
+
+##### AdvantageKit
+A logging and telemetry framework developed and popularized by Mechanical Advantage. Primarily used by ThunderChickens for the logging utilities. [AdvantageKit Website](https://docs.advantagekit.org/)
+
+##### AdvantageScope
+A visualization and analysis tool used to review data recorded by AdvantageKit & other logging methods. [AdvantageScope Website](https://docs.advantagescope.org/)
+
+##### AprilTag
+A visual fiducial marker used by robot vision systems for localization and field positioning. [More AprilTag information.](https://docs.wpilib.org/en/stable/docs/software/vision-processing/apriltag/apriltag-intro.html)
+
+#### C
+
+##### CAN Bus
+A communication network used by robot devices such as motor controllers, sensors, and LED controllers.
+
+##### CANCoder
+A [CTRE](#ctre) absolute encoder commonly used for rotational position feedback. This is a [CAN](#can-bus) based sensor.
+
+##### CANdle
+A [CTRE](#ctre) LED controller used to manage robot lighting and visual feedback systems. This is a [CAN](#can-bus) based sensor.
+
+##### Characterization
+The process of measuring a mechanism's behavior to derive control-loop parameters such as PID or Feedforward constants.
+
+##### Constructor
+The initialization method of a Java class where subsystem hardware configuration, setup, and initialization occur.
+
+##### Continuous Rotation Servo
+A servo that behaves like a standard motor, rotating continuously in either direction rather than holding a specific position.
+
+##### Co-processor
+A secondary computer used for some purpose built compute task on the robot. Typically for vision processing.
+
+##### CTRE
+[Cross The Road Electronics](https://store.ctr-electronics.com/), a manufacturer of FRC control system components including TalonFX controllers, CANcoders, and CANdles.
+
+#### D
+
+##### DCMotorSim
+A WPILib simulation utility used to model motor behavior in robot simulations.
+
+##### Differential Drive
+A drivetrain consisting of independently controlled left and right wheel sets used for basic robot movement. Think tank drive or RC car.
+
+##### Double-Acting Solenoid
+A pneumatic actuator configuration that uses air pressure for both extension and retraction.
+
+##### Driver Station
+The FRC Driver Station is a combination of laptop, game controllers, and software. When combined together to control the robot. For software information see [Driver Station](https://docs.wpilib.org/en/stable/docs/software/driverstation/index.html) on the WPILib documentation.
+
+#### E
+
+##### Elevator
+A linear motion subsystem that moves linearly, commonly used to lift or position game elements.
+
+##### Encoder
+A sensor that measures rotational position and velocity. Motors have an integrated [Relative Encoder](#relative-encoder).
+
+#### F
+
+##### Feedforward Controller
+A control strategy that predicts the output required to achieve desired motion, often combined with PID control.
+
+##### Flywheel
+A rotational mechanism used to store kinetic energy and provide consistent velocity, commonly used in shooter systems.
+
+##### FRC
+[FIRST Robotics Competition](https://www.firstinspires.org/programs/frc/), the robotics program for which the subsystem architecture is intended.
+
+#### G
+
+##### Gear Ratio
+The relationship between motor rotation and mechanism movement. Programming uses this value for unit conversion to go from [Rotations](#rotations) to a real world unit.
+
+##### Gyroscope
+A sensor that measures rotational velocity and orientation changes. We use these to track the heading of the robot.
+
+#### H
+
+##### Hardware Limit Switch
+A physical switch used to prevent a mechanism from moving beyond safe operating limits.
+
+##### Home Position
+A known reference position used to establish subsystem zero (0).
+
+##### Homing
+The process of moving a mechanism to a known position to establish accurate position tracking. Typically encoders are zeroed after homing.
+
+#### I
+
+##### IMU (Inertial Measurement Unit)
+A sensor package consisting of accelerometers, gyroscopes, and often magnetometers used to track robot orientation and motion.
+
+##### Interface
+A software component defining common methods and data interactions between subsystem layers.
+
+#### J
+
+##### Java Units Classes
+WPILib-provided classes that enforce consistent engineering units such as meters, degrees, and velocities.
+
+#### K
+
+##### KrakenX44
+High-performance motors developed by [WestCoast Products](#westcoast-products). Powered by the [RalonFX](#talonfx). See [product page](https://wcproducts.com/products/kraken) for more information. 
+
+##### KrakenX60
+High-performance motors developed by [WestCoast Products](#westcoast-products). Powered by the [RalonFX](#talonfx). See [product page](https://wcproducts.com/products/kraken) for more information.
+
+#### L
+
+##### LED
+Light Emitting Diode devices used for driver feedback, robot diagnostics, and status indication.
+
+##### Limit Switch
+A sensor that detects a mechanism reaching a predefined physical boundary. See [Hardware Limit Switch](#hardware-limit-switch).
+
+##### Logging
+The process of recording robot telemetry and operational data for analysis and debugging.
+
+##### LoggedTunableNumber
+A utility that allows a double to be modified over [NetworkTables](#networktables) often via [AdvantageScope](#advantagescope). The changes to these values is logged for future analysis.
+
+#### M
+
+##### Magnetometer
+A sensor used to measure magnetic fields, can be used to determine an accurate heading.
+
+##### MaxMotion
+REV Robotics motion profiling implementation. See [MAXMotion Position Control](https://docs.revrobotics.com/revlib/spark/closed-loop/maxmotion-position-control) for more information.
+
+##### Motion Magic
+CTRE's onboard motion profiling control mode. See [Motion Magic Controls](https://v6.docs.ctr-electronics.com/en/2025/docs/api-reference/device-specific/talonfx/motion-magic.html) for more information.
+
+##### Motion Profiling
+A control technique that constrains velocity and acceleration to achieve smoother movement.
+
+##### Motor Controller
+An electronic device that regulates motor operation, speed, position, or torque.
+
+#### N
+
+##### Neo 1.1
+A first generation brushless motor produced by REV Robotics. Good mid-tier motor for medium torque application. See the REV [product page](https://www.revrobotics.com/rev-21-1650/) for more information on the motor. This motor requires a separate [Motor Controller](#motor-controller) to operate. ThunderChickens typically uses a REV [SparkMax](#sparkmax) as our preferred motor controller.
+
+##### Neo 2.0
+A second generation brushless motor produced by REV Robotics. Good mid-tier motor for medium torque application. See the REV [product page](https://www.revrobotics.com/rev-21-1653) for more information on the motor. This motor requires a separate [Motor Controller](#motor-controller) to operate. ThunderChickens typically uses a REV [SparkMax](#sparkmax) as our preferred motor controller.
+
+##### Neo 550
+A small form factor brushless motor produced by REV Robotics. Tiny low torque, high speed motor useful for weight savings and space saving applications. See the REV [product page](https://www.revrobotics.com/rev-21-1651/) for more information on the motor. This motor requires a separate [Motor Controller](#motor-controller) to operate. ThunderChickens typically uses a REV [SparkMax](#sparkmax) as our preferred motor controller.
+
+##### NetworkTables
+NetworkTables is a publish-subscribe communication system built over Ethernet to share data between the robot, [Co-processor](#co-processor), [Driver Station](#driver-station) and more. See [What is NetworkTables](https://docs.wpilib.org/en/stable/docs/software/networktables/networktables-intro.html) for more information.
+
+#### P
+
+##### PID Controller
+A feedback control algorithm using Proportional, Integral, and Derivative terms to regulate system performance. See [Introduction to PID](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html) for more information.
+
+##### Pneumatics
+A motion system powered by compressed air, providing strictly linear movement. Use is often discouraged due to the weight & components required to setup a pneumatic system.
+
+##### Position Control
+A control strategy that drives a mechanism to a desired target position.
+
+##### Periodic
+A subsystem method called every robot cycle, typically every 20 milliseconds.
+
+##### PhotonVision
+A robot vision platform used for camera processing and pose estimation. See [PhotonVision](https://photonvision.org/) website for more information.
+
+##### Pivot
+A rotational positioning subsystem that controls angular movement.
+
+#### R
+
+##### Relative Encoder
+An encoder that tracks movement relative to a starting point but does not retain absolute position after power cycling. Starts at a zero (0) position, which is whatever position the motor is in when the robot is turned on.
+
+##### REV Robotics
+[REV Robotics](https://www.revrobotics.com/) is a robotics supplier providing motors, motor controllers, encoders, and related control hardware.
+
+##### Robot Controller
+The central computing device that executes robot code and coordinates subsystem behavior. Historically it has been the NI RoboRio. Starting with the 2027 season it will be the Limelight SystemCore.
+
+#### S
+
+##### Sensor
+A device that provides feedback about robot or mechanism state. [Encoders](#encoder), [Limit Switches](#limit-switch), or [Inertial Measurement Units](#imu-inertial-measurement-unit) are common sensors in FRC. 
+
+##### Servo
+A compact actuator designed for position or continuous rotation control. Good for low speed, low torque applications. Shooter hoods, climber ratchet pawls are some examples.
+
+##### Simulation
+A software environment for testing robot code without physical hardware. [WPILIB](#wpilib) supports an integrated simulation environment via VS Code.
+
+##### Simulation Periodic
+A subsystem method executed only during robot simulation.
+
+##### Single-Acting Solenoid
+A pneumatic actuator that uses air pressure in one direction and a spring for return motion.
+
+##### Software Limit
+A motion boundary enforced through software typically using encoder feedback.
+
+##### SparkMax
+
+A [Motor Controller](#motor-controller) designed by [REV Robotics](#rev-robotics). This is ThunderChickens preferred motor controller. See [product page](https://www.revrobotics.com/rev-11-2158) for more information.
+
+##### Subsystem
+A modular hardware and software component that encapsulates a specific robot function. Such as Elevator, Pivot, Roller.
+
+##### SubsystemBase
+The WPILib base class used as the foundation for robot subsystems.
+
+##### Swerve Drive
+A drivetrain in which each wheel module independently controls wheel speed and steering angle. Fast becoming the most popular drivebase, but also one of the most complicated steering methods.
+
+##### SysID
+WPILib's System Identification framework used for mechanism [Characterization](#characterization) and control tuning.
+
+#### T
+
+##### TalonFX
+A [CTRE](#ctre) [motor controller](#motor-controller) physically integrated into Kraken motors. Previously used in the Falcon 500 motors produced by VEX Robotics. See [product page](https://wcproducts.com/products/kraken) for more information.
+
+##### Through-Bore Encoder
+A type of encode that fits directly on a hex shaft. Typically a type of [Absolute Encoder](#absolute-encoder).
+
+##### Tunable Constant
+A configurable value that can be adjusted live during robot operation. See [LoggedTunableNumber](#loggedtunablenumber) for ThunderChickens typical implementation.
+
+#### U
+
+##### Units Conversion
+The process of translating raw sensor values into meaningful engineering units such as meters or degrees.
+
+#### V
+
+##### Velocity Control
+A control mode that regulates the speed of a mechanism.
+
+##### Vision System
+A camera-based subsystem used for localization, target tracking, and object detection.
+
+##### Vortex
+A brushless motor produced by [REV Robotics](#rev-robotics). This motor is unique in that we can change the shaft type or put a hex shaft through the motor. See [product page](https://www.revrobotics.com/rev-21-1652) for more information.
+
+#### W
+
+##### WestCoast Products
+[WestCoast Products](https://wcproducts.com/) is a supplier of mechanical, structural, and electrical components tailored for FIRST Robotics Competition (FRC) teams.
+
+##### WPILib
+The primary software library and framework used for FRC robot programming. See [WPILib](https://docs.wpilib.org/en/stable/index.html) website for more information.
+
+## 8 Revision History
 
 
 | Date       | Author | Description                         |
