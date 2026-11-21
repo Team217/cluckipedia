@@ -3,6 +3,10 @@
 Read these before changing code. They explain how the pieces fit together
 and *why*, so you can change things without breaking something far away.
 
+For a deeper, method-by-method tour of the code, with walkthroughs that
+follow a tap all the way through the system, see the
+[Code guide](../code/index.md).
+
 | Page | Read it when… |
 |---|---|
 | [Architecture](architecture.md) | Always, first. |

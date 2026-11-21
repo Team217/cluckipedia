@@ -14,18 +14,6 @@ Recipes for the jobs that come up.
 | Know about the rough edges | [Known issues](known-issues.md) |
 | Change these docs | [Updating these docs](updating-docs.md) |
 
-## Golden rules
-
-1. **Work on a branch**, never straight on `main`.
-2. **Run both test suites** before sharing a change.
-3. **Never change what a stored value means.** Add a new field instead.
-   Old records keep the old meaning forever.
-4. **Every database change needs a migration** (see the
-   [database pages](../database/index.md)).
-5. **Update the docs in the same change** as the code.
-6. **Test on a real tablet** before an event, especially Bluetooth and the
-   LoRa/TCP link, which the automated tests can't fully cover.
-
 ```{rubric} Table of contents
 ```
 
@@ -42,3 +30,15 @@ troubleshooting
 known-issues
 updating-docs
 ```
+
+## Golden rules
+
+1. **Work on a branch**, never straight on `main`.
+2. **Run both test suites** before sharing a change.
+3. **Never change what a stored value means.** Add a new field instead.
+   Old records keep the old meaning forever.
+4. **Every database change needs a migration** (see the
+   [database pages](../database/index.md)).
+5. **Update the docs in the same change** as the code.
+6. **Test on a real tablet** before an event, especially Bluetooth and the
+   LoRa/TCP link, which the automated tests can't fully cover.

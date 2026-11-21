@@ -81,5 +81,5 @@ together.
 | What | Where |
 |---|---|
 | The database | `/data/data/com.example.chicken_scratch/databases/chicken_scratch.db` (private) |
-| CSV exports | A temporary file handed to Android's share menu |
+| CSV exports | `exports/scouting_<event>_<time>.csv` in the storage folder, then offered to Android's share menu |
 | Dashboards | In the database (`dashboards` table) |

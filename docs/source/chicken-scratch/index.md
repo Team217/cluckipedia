@@ -8,6 +8,21 @@ partners.
 
 ![The tablet app's home screen](images/tablet/home_admin.png)
 
+```{rubric} Table of contents
+```
+
+```{toctree}
+:maxdepth: 1
+
+start/index
+use/index
+how/index
+code/index
+database/index
+maintain/index
+reference/index
+```
+
 ## What's in the project
 
 | Part | What it is | Written in |
@@ -38,6 +53,9 @@ partners.
   runs the laptop.
 - **How it works**: how the code is put together, with diagrams. Read this
   before changing code.
+- **Code guide**: a deep, file-by-file and method-by-method tour of the
+  code, with walkthroughs, design decisions and exercises. A learning guide
+  for students new to big projects.
 - **Database**: every table, column and data field, explained.
 - **Maintaining**: recipes for the jobs you'll actually do: new season, new
   field, new dashboard tile, building the app, fixing problems.
@@ -49,18 +67,4 @@ Nothing in these docs changes the app unless you follow a step that says
 to edit a file. If you get stuck, every page tries to say *why* things are
 the way they are, so you can make a good guess, and the
 [Troubleshooting](maintain/troubleshooting.md) page lists common problems.
-```
-
-```{rubric} Table of contents
-```
-
-```{toctree}
-:maxdepth: 1
-
-start/index
-use/index
-how/index
-database/index
-maintain/index
-reference/index
 ```

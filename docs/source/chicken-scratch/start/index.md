@@ -11,8 +11,9 @@ never written a program. Read the pages in order:
 4. [Your first day](first-day.md): run the tests, run both apps, make a
    tiny change and see it work.
 
-After that, [Using the apps](../use/index.md) shows every screen, and
-[How it works](../how/index.md) explains the code.
+After that, [Using the apps](../use/index.md) shows every screen,
+[How it works](../how/index.md) explains how the pieces fit, and the
+[Code guide](../code/index.md) walks through the code itself.
 
 ```{rubric} Table of contents
 ```
