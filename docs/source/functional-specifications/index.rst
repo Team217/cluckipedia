@@ -19,7 +19,7 @@ This section of the documentation covers software Functional Specifications used
     :maxdepth: 5
 
     Subsystem Functional Spec <subsystem-func-spec.md>
-    swerve-checklist.md
+    swerve-drive-checklist.md
     diff-drive-checklist.md
     elevator-checklist.md
     flywheel-checklist.md

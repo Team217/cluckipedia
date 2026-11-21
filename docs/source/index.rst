@@ -16,6 +16,7 @@ Contents
    reference-materials/index
    training-materials/index
    houston-conferences/index
+   chicken-scratch/index
    candle-template.md
    tc26-comp-procedures.md
    hardware-status-lights.md

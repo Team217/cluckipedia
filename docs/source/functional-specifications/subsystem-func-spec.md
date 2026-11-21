@@ -146,7 +146,7 @@ Simulation periodic is a method much like the above periodic but it only runs wh
 
 All robots need to move on the field. So every robot has some sort of drivebase or drivetrain to provide locomotion to the robot. In FRC these days the predominate drivebase design is Swerve, which provides the most dynamic control of the robot. Swerve is also the most complex drive system. For simple robots we often will utilize a differential drive which is more in line with what you would find on an RC car. There are some other flavors of differential drive robots that we'll touch on briefly in that section. 
 
-### 5.1.1 Swerve
+### 5.1.1 Swerve Drive
 
 A swerve drive system is typically made up of four (4) wheel modules mounted in each corner of the drivebase. These wheel modules are able to drive both the wheel itself and pivot the angle / heading of the wheel. This control of each wheels heading when working in tandem with the rest of the wheel modules enables the robot to move vary dynamically on the field & enables the "front" of the robot to become variable. Each wheel module is made up of two (2) motors. One for angle adjustment, and one for drive. Along with the motors, each angle motor uses an absolute encoder for positioning of the module angle. In addition to the 4 modules, the swerve subsystem also is equipped with an IMU / Gyroscope which provides the heading information needed to calculate the wheel positions. 
 
@@ -744,3 +744,4 @@ The primary software library and framework used for FRC robot programming. See [
 | 06/13/2026 | AK     | Initial Release                     |
 | 08/26/2026 | AK     | Expansion of document               |
 | 08/30/2026 | AK     | Broaden to include all subsystems   |
+| 09/05/2026 | AK     | Add glossary of common terms        |

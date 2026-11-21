@@ -1,4 +1,4 @@
-# Swerve Subsystem Checklist
+# Swerve Drive Subsystem Checklist
 
 Use this checklist as a quick reference to ensure your subsystem meets the requirements set out in the Subsystem Functional Specification. Always refer to the full functional specification for more detailed implementation details for any subsystem.
 
