@@ -80,4 +80,4 @@ before each event.
 ## The red/blue swap in schedule files
 
 Not a bug, but a trap: see
-[Files on the tablet](../database/files.md#matchschedules).
+[Files on the tablet](../database/files.md).

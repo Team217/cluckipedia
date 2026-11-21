@@ -52,7 +52,7 @@ So we split each record into:
   station, who edited it and when;
 - a **`data` column holding JSON** for that season's game-specific fields:
 
-```json
+```text
 {
   "auton":   {"auton_fuel": 6, "auton_climb": false, "starting_pos": [504.7, 0.2], …},
   "teleop":  {"teleop_fuel": 81},
@@ -76,10 +76,12 @@ file needs:
 | Tablet | 3 | `_open()` in `lib/data/scout_database.dart` |
 | Laptop | 3 | `_migrate()` in `companion/chicken_companion/db.py` |
 
-!!! danger "Never change a table without a migration"
-    If you add a column but no upgrade code, every existing tablet or laptop
-    database breaks the moment the new app opens it. The database pages
-    explain how to add a migration safely.
+```{admonition} Never change a table without a migration
+:class: danger
+If you add a column but no upgrade code, every existing tablet or laptop
+database breaks the moment the new app opens it. The database pages
+explain how to add a migration safely.
+```
 
 ## Diagrams in these pages
 

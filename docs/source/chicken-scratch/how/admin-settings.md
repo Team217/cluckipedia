@@ -59,7 +59,7 @@ and one **schedule** per event:
 - **hash** is a short fingerprint of a schedule. If a tablet already has a
   schedule with that hash, nothing needs doing.
 - **assignments** are keyed by each tablet's *device ID* (a random ID the
-  tablet makes for itself; see [Tablet database](../database/tablet-database.md#meta)).
+  tablet makes for itself; see [Tablet database](../database/tablet-database.md)).
 
 ## What a tablet does with them
 

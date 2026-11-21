@@ -25,7 +25,7 @@
 
 ## Bluetooth
 
-See the table in [Bluetooth sync](../how/bluetooth-sync.md#common-problems).
+See the table in [Bluetooth sync](../how/bluetooth-sync.md).
 Quick checks: Bluetooth on, tablets paired, master is **hosting**,
 **Nearby devices** permission granted.
 

@@ -4,7 +4,7 @@ The tablet app follows **Material Design 3**, Google's current design system
 (m3.material.io). All colours and component styles come from one file:
 `lib/theme/app_theme.dart`.
 
-![Light and dark](../images/tablet/scout_submit_dark.png){ width="640" }
+![Light and dark](../images/tablet/scout_submit_dark.png)
 
 ## How the colours are made
 

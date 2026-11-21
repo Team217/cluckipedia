@@ -62,17 +62,19 @@ the surrounding `[` `]`:
 {"event_key":"2026mitr2","match_number":2,…}
 ```
 
-!!! warning "Red and blue are swapped in this file"
-    In this file, **`blue_alliance` holds the red alliance** and
-    **`red_alliance` holds the blue one**. (Above, 217/33/67 are *red*.)
+```{admonition} Red and blue are swapped in this file
+:class: warning
+In this file, **`blue_alliance` holds the red alliance** and
+**`red_alliance` holds the blue one**. (Above, 217/33/67 are *red*.)
 
-    That's historical: `FRCMatch.fromJson` (reading The Blue Alliance) swaps
-    them, `toJson` writes them swapped, and `FRCMatch.fromProcessedJson`
-    (reading the file) swaps them back. Everything that reads the file
-    expects this, so **don't "fix" one side**. If you ever change it, change
-    `match_model.dart`, `admin_service.dart` (`scheduleFileContent`), the
-    companion's `admin.py` (`parse_tablet_schedule`) and their tests
-    together.
+That's historical: `FRCMatch.fromJson` (reading The Blue Alliance) swaps
+them, `toJson` writes them swapped, and `FRCMatch.fromProcessedJson`
+(reading the file) swaps them back. Everything that reads the file
+expects this, so **don't "fix" one side**. If you ever change it, change
+`match_model.dart`, `admin_service.dart` (`scheduleFileContent`), the
+companion's `admin.py` (`parse_tablet_schedule`) and their tests
+together.
+```
 
 ## Other storage
 

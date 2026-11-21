@@ -117,7 +117,9 @@ Both dongles must use the same frequency and settings. The companion's
 **Radio settings…** writes them (Waveshare AT commands). Defaults: channel
 65 (915 MHz, the US band), spreading factor 7, 125 kHz bandwidth, 22 dBm.
 
-!!! warning "Check event rules"
-    FRC bans teams' Wi-Fi networks. LoRa isn't Wi-Fi, but confirm with the
-    event that 900 MHz radios are OK before relying on them. TCP over a
-    hotspot *is* Wi-Fi; use a USB cable (tethering) at events instead.
+```{admonition} Check event rules
+:class: warning
+FRC bans teams' Wi-Fi networks. LoRa isn't Wi-Fi, but confirm with the
+event that 900 MHz radios are OK before relying on them. TCP over a
+hotspot *is* Wi-Fi; use a USB cable (tethering) at events instead.
+```

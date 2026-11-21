@@ -59,10 +59,12 @@ file).
 After adding one, it appears in every tile's settings. Add a test to
 `test/dashboard_test.dart` that checks its value for a known record.
 
-!!! warning "Keys are saved"
-    Dashboards on tablets save metric *keys* in their settings. If you
-    rename or remove a key, tiles using it fall back to the first metric.
-    Prefer adding new metrics over renaming old ones.
+```{admonition} Keys are saved
+:class: warning
+Dashboards on tablets save metric *keys* in their settings. If you
+rename or remove a key, tiles using it fall back to the first metric.
+Prefer adding new metrics over renaming old ones.
+```
 
 ## Add a tile type
 

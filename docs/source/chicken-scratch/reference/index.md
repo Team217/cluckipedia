@@ -13,3 +13,14 @@ Also see the [Glossary](../start/glossary.md) and the database pages:
 [tablet](../database/tablet-database.md),
 [companion](../database/companion-database.md),
 [scouting data](../database/scouting-data.md).
+
+```{rubric} Table of contents
+```
+
+```{toctree}
+:maxdepth: 1
+
+project-files
+settings
+protocol
+```

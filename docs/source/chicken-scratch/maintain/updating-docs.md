@@ -1,46 +1,57 @@
 # Updating these docs
 
-These docs are Markdown files in `docs/`, built into a website with
-**MkDocs** and the **Material** theme. Read the Docs builds and hosts the
-site from the repository.
+These docs are Markdown files in this project's `docs/` folder. They're
+published as the **Chicken Scratch** section of **Cluckipedia**, the team's
+knowledge base (cluck.thunderchickens.org), which is a separate repository:
+github.com/Team217/cluckipedia.
+
+```mermaid
+flowchart LR
+    A["chicken_scratch repo<br/>docs/ (edit here)"] -- "tool/publish_docs.py" --> B["cluckipedia repo<br/>docs/source/chicken-scratch/"]
+    B -- "push to main" --> C["Read the Docs builds<br/>cluck.thunderchickens.org"]
+```
+
+**Always edit here**, in `chicken_scratch/docs/`, next to the code, then copy
+to Cluckipedia. Edits made only in Cluckipedia get overwritten by the next
+copy.
+
+## How Cluckipedia reads the pages
+
+Cluckipedia is built with **Sphinx** using the **Read the Docs theme**, and
+reads Markdown with **MyST**. A few rules follow from that:
+
+- **The sidebar comes from tables of contents.** Each section's `index.md`
+  ends with a `toctree` listing its pages. A page that isn't in a `toctree`
+  still gets built but **won't appear in the sidebar**.
+- **Use MyST syntax for special blocks** (below). Syntax from other tools,
+  like MkDocs' `!!! note` or `=== "Tab"`, shows up as plain text.
+- **Link to pages, not to headings.** `[Settings](../reference/settings.md)`
+  works; `settings.md#tablet` doesn't (Cluckipedia doesn't generate heading
+  links).
 
 ## Edit a page
 
-1. Find the file: the page's address matches its path, e.g. the page you're
-   reading is `docs/maintain/updating-docs.md`.
-2. Edit it in VS Code (**Ctrl+Shift+V** previews Markdown).
+1. Find the file: e.g. this page is `docs/maintain/updating-docs.md`.
+2. Edit it in VS Code (**Ctrl+Shift+V** previews plain Markdown).
 3. Commit it with the code change it describes.
 
-To add a page, create the file and add it to `nav:` in `mkdocs.yml`, or it
-won't appear in the menu.
+**To add a page**: create the `.md` file, then add its name (without `.md`)
+to the `toctree` at the bottom of its section's `index.md`:
 
-## Preview the whole site
+````markdown
+```{toctree}
+:maxdepth: 1
 
-Once, make a private environment for the doc tools:
-
-```powershell
-python -m venv .docs-venv
-.docs-venv\Scripts\pip install -r docs/requirements.txt
+new-season
+my-new-page
 ```
-
-Then:
-
-```powershell
-.docs-venv\Scripts\mkdocs serve
-```
-
-and open **http://127.0.0.1:8000**. The page reloads as you save. Before
-committing, check the build has no warnings:
-
-```powershell
-.docs-venv\Scripts\mkdocs build --strict
-```
-
-(`.docs-venv` and the generated `site/` folder are git-ignored.)
+````
 
 ## Markdown you'll use
 
 ````markdown
+# Page title (one per page)
+
 ## A heading
 
 Text with **bold**, `code`, and a [link to another page](../start/glossary.md).
@@ -54,20 +65,28 @@ Text with **bold**, `code`, and a [link to another page](../start/glossary.md).
 
 ![Alt text describing the picture](../images/tablet/home_admin.png)
 
-!!! tip "A coloured box"
-    Indented text inside it. Also: note, warning, danger, info, success.
-
 ```powershell
 commands in a code block
 ```
 ````
 
-Links between pages use the relative path to the `.md` file.
+**Coloured boxes** (admonitions):
+
+````markdown
+```{note}
+A plain note.
+```
+
+```{admonition} A title of your choice
+:class: tip
+Text inside the box. Classes: note, tip, warning, danger, important.
+```
+````
 
 ## Diagrams
 
-Diagrams are written as text with **Mermaid**, inside a ` ```mermaid ` block,
-so anyone can edit them:
+Diagrams are written as text with **Mermaid** in a ` ```mermaid ` block, so
+anyone can edit them:
 
 ````markdown
 ```mermaid
@@ -77,7 +96,58 @@ flowchart LR
 ````
 
 Mermaid supports flowcharts, sequence diagrams, entity-relationship diagrams
-(the database pages) and Git graphs. Try changes at **mermaid.live**.
+(the database pages) and Git graphs. Try changes at **mermaid.live** first:
+a diagram with a mistake shows an error box instead of the picture. To write
+`<` or `>` inside a label, use `#lt;` and `#gt;`.
+
+## Preview on your computer
+
+Once, make a private environment with the same tools Cluckipedia uses:
+
+```powershell
+python -m venv .docs-venv
+.docs-venv\Scripts\pip install -r docs/requirements.txt
+```
+
+Then build and open the result:
+
+```powershell
+.docs-venv\Scripts\python -m sphinx -b html docs docs/_build
+start docs\_build\index.html
+```
+
+Read the messages: any `WARNING` about a page "not included in any toctree"
+means it won't be in the sidebar. `docs/conf.py` holds the preview settings,
+which match Cluckipedia's. (`.docs-venv` and `docs/_build` are git-ignored.)
+
+## Publish to Cluckipedia
+
+1. Clone Cluckipedia once (or `git pull` an existing clone):
+
+    ```powershell
+    git clone https://github.com/Team217/cluckipedia.git C:\dev\cluckipedia
+    ```
+
+2. Copy the docs across. This adds and updates files and removes ones
+   deleted here; it skips the preview-only files:
+
+    ```powershell
+    python tool/publish_docs.py C:\dev\cluckipedia
+    ```
+
+3. In the Cluckipedia clone, review and commit:
+
+    ```powershell
+    cd C:\dev\cluckipedia
+    git status
+    git add docs/source/chicken-scratch
+    git commit -m "Update Chicken Scratch docs"
+    git push
+    ```
+
+Read the Docs rebuilds cluck.thunderchickens.org a few minutes later.
+Cluckipedia's main menu (`docs/source/index.rst`) already links to
+`chicken-scratch/index`.
 
 ## Screenshots
 
@@ -92,25 +162,12 @@ $env:DASHBOARD_SHOTS = "$PWD\docs\images\dashboards"; flutter test test/dashboar
 Remove-Item Env:SCREEN_SHOTS, Env:DASHBOARD_SHOTS
 ```
 
-The test renderer can't draw text on the Settings page (the `settings_ui`
-package uses a font the test can't load), so that page is described with a
-table instead of a picture.
+That writes light and dark versions of every screen; delete the ones no page
+uses. The test renderer can't draw text on the Settings page (the
+`settings_ui` package uses a font the test can't load), so that page is
+described with a table instead of a picture.
 
 **Companion screens**: `docs/images/companion/` was made by running the app
 offscreen against the simulator with made-up data. To redo them, take your
 own screenshots with the **Simulator** (Windows: **Win+Shift+S**) and save
 them with the same file names. Use only made-up data.
-
-!!! note "Material for MkDocs end of life"
-    The Material theme's makers have announced it reaches end of life in May
-    2027, with **Zensical** as its successor (it reads the same `mkdocs.yml`).
-    Plan to switch before then; `docs/requirements.txt` is the only place the
-    tools are listed.
-
-## Read the Docs
-
-`.readthedocs.yaml` tells Read the Docs to install `docs/requirements.txt`
-and build `mkdocs.yml`, failing on warnings. To set up hosting (once): sign
-in at **readthedocs.org** with GitHub, **Import a Project**, choose
-`Team217/chicken_scratch`. After that, every push to `main` rebuilds the
-site.

@@ -3,7 +3,7 @@
 ## Tablet: `settings.json`
 
 Stored in the app's storage folder (see
-[Files on the tablet](../database/files.md#settingsjson)). "Set from laptop"
+[Files on the tablet](../database/files.md)). "Set from laptop"
 means the companion's Admin settings can set it (and the tablet can
 override; see [Admin settings](../how/admin-settings.md)).
 
@@ -35,7 +35,7 @@ Defaults for a brand-new tablet: `assets/config/default_settings.json`.
 
 ## Tablet: values from the laptop (`meta` table)
 
-See [Tablet database → meta](../database/tablet-database.md#meta).
+See [Tablet database → meta](../database/tablet-database.md).
 
 ## Companion: command line
 
@@ -70,4 +70,4 @@ Saved per user by Qt (on Windows in the registry under
 
 Team number, season, current event, passcode and the settings version are
 in the database's `admin_settings` table. See
-[Companion database](../database/companion-database.md#admin_settings).
+[Companion database](../database/companion-database.md).

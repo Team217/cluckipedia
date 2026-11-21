@@ -9,34 +9,42 @@ Open **Dashboards** from the home screen.
 
 ## The four starter dashboards
 
-=== "Alliance selection"
+**Alliance selection**
 
-    ![Alliance selection dashboard](../images/dashboards/Alliance_selection.png)
 
-    Team rankings, a draggable **pick list** (tap a team to mark it picked),
-    the top teams for one stat, and up to four teams compared side by side.
+![Alliance selection dashboard](../images/dashboards/Alliance_selection.png)
 
-=== "Match strategy"
+Team rankings, a draggable **pick list** (tap a team to mark it picked),
+the top teams for one stat, and up to four teams compared side by side.
 
-    ![Match strategy dashboard](../images/dashboards/Match_strategy.png)
 
-    Pick a match: red versus blue with each robot's averages and the
-    alliance's expected fuel, plus the focus team's trend, auton map and
-    scout comments.
+**Match strategy**
 
-=== "Team deep dive"
 
-    ![Team deep dive dashboard](../images/dashboards/Team_deep_dive.png)
+![Match strategy dashboard](../images/dashboards/Match_strategy.png)
 
-    Everything about one team: key numbers with their rank, trend over time,
-    climb breakdown, auton paths and comments.
+Pick a match: red versus blue with each robot's averages and the
+alliance's expected fuel, plus the focus team's trend, auton map and
+scout comments.
 
-=== "Scouting coverage"
 
-    ![Scouting coverage dashboard](../images/dashboards/Scouting_coverage.png)
+**Team deep dive**
 
-    Which robots in which matches still have no data, so the head scout can
-    spot gaps (a scout who missed a match, a tablet that didn't sync).
+
+![Team deep dive dashboard](../images/dashboards/Team_deep_dive.png)
+
+Everything about one team: key numbers with their rank, trend over time,
+climb breakdown, auton paths and comments.
+
+
+**Scouting coverage**
+
+
+![Scouting coverage dashboard](../images/dashboards/Scouting_coverage.png)
+
+Which robots in which matches still have no data, so the head scout can
+spot gaps (a scout who missed a match, a tablet that didn't sync).
+
 
 ## The toolbar
 
@@ -106,9 +114,11 @@ out from every match a team played:
 **Best**, **Worst**, **Consistency** (standard deviation; lower means more
 consistent), **Total**, or **% of matches** (for yes/no stats).
 
-!!! warning "Expected fuel is a count, not points"
-    The match preview adds up each robot's average *fuel count*. It isn't
-    a predicted score, because the stats don't know the point values.
+```{admonition} Expected fuel is a count, not points
+:class: warning
+The match preview adds up each robot's average *fuel count*. It isn't
+a predicted score, because the stats don't know the point values.
+```
 
 ## Dark mode
 

@@ -21,7 +21,7 @@ flowchart LR
 Good news first. These handle any season automatically:
 
 - the databases (game data lives in the `data` JSON; see
-  [Database basics](../database/basics.md#json-inside-a-column)),
+  [Database basics](../database/basics.md)),
 - Bluetooth sync, the LoRa/TCP link, restore,
 - CSV export (columns come from whatever fields exist),
 - the companion app: storage, the season data dictionary, legacy import,
@@ -42,9 +42,11 @@ record in auton, teleop and endgame. For each field decide:
 Write the list into [Scouting data by season](../database/scouting-data.md)
 as a new section *before* coding. It's your plan, and it becomes the docs.
 
-!!! tip "Reuse what you can"
-    The fuel counter, climb selector, robot condition, defense and driving
-    widgets can be reused for similar fields with a different label.
+```{admonition} Reuse what you can
+:class: tip
+The fuel counter, climb selector, robot condition, defense and driving
+widgets can be reused for similar fields with a different label.
+```
 
 ## Step 1: make a branch
 
@@ -155,14 +157,14 @@ Companion tests don't depend on game fields.
 
 ## Checklist
 
-- [ ] Field list agreed and written in the docs
-- [ ] Branch created
-- [ ] Field pictures replaced (and calibration checked)
-- [ ] `ScoutData`: variables, `toMap()`, `_applyMap()`
-- [ ] Auton / Teleop / Endgame pages
-- [ ] QR map in `submit_data_page.dart`
-- [ ] `Metrics.all` and metric keys in `lib/dashboard/`
-- [ ] Tests updated and passing (both suites)
-- [ ] Docs updated
-- [ ] Version bumped, APK built and installed
-- [ ] Practice event run end to end
+- ☐ Field list agreed and written in the docs
+- ☐ Branch created
+- ☐ Field pictures replaced (and calibration checked)
+- ☐ `ScoutData`: variables, `toMap()`, `_applyMap()`
+- ☐ Auton / Teleop / Endgame pages
+- ☐ QR map in `submit_data_page.dart`
+- ☐ `Metrics.all` and metric keys in `lib/dashboard/`
+- ☐ Tests updated and passing (both suites)
+- ☐ Docs updated
+- ☐ Version bumped, APK built and installed
+- ☐ Practice event run end to end

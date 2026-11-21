@@ -18,3 +18,15 @@ flowchart TD
     Matches --> Scout["Scouting a match:<br/>Pre-match → Auton → Teleop → Endgame → Submit"]
     Scout -->|Submit| Matches
 ```
+
+```{rubric} Table of contents
+```
+
+```{toctree}
+:maxdepth: 1
+
+tablet-app
+dashboards
+companion-app
+match-day
+```

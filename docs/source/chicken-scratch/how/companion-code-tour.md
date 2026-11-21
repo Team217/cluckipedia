@@ -26,7 +26,7 @@ companion/
 │       └── radio_dialog.py   ← "Radio settings…"
 ├── tests/                    ← pytest tests
 ├── protocol_vectors.json     ← exact example messages both apps are tested against
-├── PROTOCOL.md               ← the link protocol spec (also in these docs)
+├── PROTOCOL.md               ← points to docs/reference/protocol.md
 ├── README.md                 ← short version of the companion pages here
 └── requirements.txt          ← Python packages
 ```
@@ -55,37 +55,37 @@ sequenceDiagram
 
 ## Files in more detail
 
-`__main__.py`
-:   Parses `--db`, `--import-json` and `--replace`, then either imports and
-    exits or opens the window. The default database is
-    `~/ChickenScratch/scouting.db`.
+**`__main__.py`**  
+Parses `--db`, `--import-json` and `--replace`, then either imports and
+exits or opens the window. The default database is
+`~/ChickenScratch/scouting.db`.
 
-`db.py`
-:   The SQLAlchemy table classes and `Store`, which wraps the database:
-    `merge` (the newest-edit-wins rule), `import_records`, `records`,
-    `events`, `seasons`, the season data dictionary (`refresh_fields`,
-    `fields`) and the upgrade code (`_migrate`). Every table is explained in
-    [Companion database](../database/companion-database.md).
+**`db.py`**  
+The SQLAlchemy table classes and `Store`, which wraps the database:
+`merge` (the newest-edit-wins rule), `import_records`, `records`,
+`events`, `seasons`, the season data dictionary (`refresh_fields`,
+`fields`) and the upgrade code (`_migrate`). Every table is explained in
+[Companion database](../database/companion-database.md).
 
-`admin.py`
-:   `Admin` wraps the admin tables: team settings, scouts, events and
-    schedules, devices, and `payload()`, which builds what gets pushed to the
-    tablets. Also the helpers for The Blue Alliance and for reading a
-    tablet's schedule file.
+**`admin.py`**  
+`Admin` wraps the admin tables: team settings, scouts, events and
+schedules, devices, and `payload()`, which builds what gets pushed to the
+tablets. Also the helpers for The Blue Alliance and for reading a
+tablet's schedule file.
 
-`legacy_import.py`
-:   `scan()` reads every JSON file below a folder into records and reports
-    duplicates and problems; `run()` writes them to the database.
+**`legacy_import.py`**  
+`scan()` reads every JSON file below a folder into records and reports
+duplicates and problems; `run()` writes them to the database.
 
-`protocol/`
-:   See [Desktop link](desktop-link.md). `responder.py` matters even though
-    the laptop never *answers* anything: it's how the simulator and tests
-    pretend to be a tablet.
+**`protocol/`**  
+See [Desktop link](desktop-link.md). `responder.py` matters even though
+the laptop never *answers* anything: it's how the simulator and tests
+pretend to be a tablet.
 
-`ui/worker.py`
-:   `LinkWorker`: `open_link`, `close_link`, `sync`, `status`, `restore`,
-    `push_admin`. Each job runs inside `_run`, which turns errors into a
-    `failed` signal so the app never crashes on a bad radio day.
+**`ui/worker.py`**  
+`LinkWorker`: `open_link`, `close_link`, `sync`, `status`, `restore`,
+`push_admin`. Each job runs inside `_run`, which turns errors into a
+`failed` signal so the app never crashes on a bad radio day.
 
 ## Tests (`companion/tests/`)
 

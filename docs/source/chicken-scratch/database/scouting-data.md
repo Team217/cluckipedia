@@ -5,12 +5,12 @@ This page lists every field for each season, and the file formats older
 data comes in.
 
 The laptop keeps an automatic list of each season's fields too: the
-**Seasons** tab, or the [`season_fields`](companion-database.md#season_fields)
+**Seasons** tab, or the [`season_fields`](companion-database.md)
 table.
 
 ## How `data` is laid out
 
-```json
+```text
 {
   "auton":   { …fields scouted during auton… },
   "teleop":  { …during teleop… },
@@ -69,11 +69,13 @@ Written by `ScoutData.toMap()` in `lib/models/scout_data_model.dart`.
 | `Did not move for the whole match` | Did not move |
 | `Fell over :(` | Fell over |
 
-!!! note "Changing stored values"
-    The stored text is what analysis and the dashboards compare against (for
-    example, "Broke down" is any value except `No`). If you reword a choice,
-    change only how it's *shown*, not the stored `value`, or old and new
-    data won't match.
+```{admonition} Changing stored values
+:class: note
+The stored text is what analysis and the dashboards compare against (for
+example, "Broke down" is any value except `No`). If you reword a choice,
+change only how it's *shown*, not the stored `value`, or old and new
+data won't match.
+```
 
 ### Example
 
@@ -128,10 +130,12 @@ same as their auton versions.
 | `defense_score`, `defense_against_score`, `driving` | whole number | |
 | `comments` | text | |
 
-!!! tip "Comparing seasons"
-    Old values are imported exactly as written, including small differences
-    like `No` vs `No.`. If you compare across seasons, normalise in your
-    query or spreadsheet (e.g. strip a trailing full stop).
+```{admonition} Comparing seasons
+:class: tip
+Old values are imported exactly as written, including small differences
+like `No` vs `No.`. If you compare across seasons, normalise in your
+query or spreadsheet (e.g. strip a trailing full stop).
+```
 
 ## Legacy files
 
@@ -160,7 +164,7 @@ reported.
 The QR code on the Submit page (and what **Sync With Workers** scans) is the
 2026 format plus identity, with the path compacted to fit in a QR code:
 
-```json
+```text
 {"match": 10, "team": 247, "event": "2026mitr2", "name": "Scout 1",
  "auton": {"starting_pos": […], "starting_pos_normalized": […],
            "auton_path": "hAiBCH4HfAd5…", "auton_fuel": 6, "auton_climb": false},

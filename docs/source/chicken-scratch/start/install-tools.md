@@ -13,8 +13,10 @@ are at the end.
 | Python 3.11 or newer | Running the companion app | Companion app |
 | DB Browser for SQLite *(optional)* | Looking inside database files | Data work |
 
-!!! info "Ask before installing on a school computer"
-    You may need an administrator. A personal laptop is easiest.
+```{admonition} Ask before installing on a school computer
+:class: note
+You may need an administrator. A personal laptop is easiest.
+```
 
 ## 1. Git
 
@@ -71,12 +73,14 @@ choosing *Android* as the target. In short:
     You want ✓ next to **Flutter** and **Android toolchain**. Warnings about
     Chrome, Visual Studio or iOS don't matter for this project.
 
-!!! note "Which Flutter version?"
-    The app is known to build with **Flutter 3.32** (stable). Newer stable
-    versions should work. If a new version breaks the build, see
-    [Known issues](../maintain/known-issues.md). The Android build tools are
-    pinned to older versions (Android Gradle Plugin 8.3.1, Kotlin 1.8.22),
-    which is why some packages are pinned too.
+```{admonition} Which Flutter version?
+:class: note
+The app is known to build with **Flutter 3.32** (stable). Newer stable
+versions should work. If a new version breaks the build, see
+[Known issues](../maintain/known-issues.md). The Android build tools are
+pinned to older versions (Android Gradle Plugin 8.3.1, Kotlin 1.8.22),
+which is why some packages are pinned too.
+```
 
 ## 4. Python
 

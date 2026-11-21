@@ -117,4 +117,4 @@ for r in store.records(event_key="2026mitr2"):
 
 **Data → Export CSV…** in the companion app (one season at a time), or the
 tablet's **Export CSV**. Columns are described in
-[Scouting data by season](scouting-data.md#csv-columns).
+[Scouting data by season](scouting-data.md).

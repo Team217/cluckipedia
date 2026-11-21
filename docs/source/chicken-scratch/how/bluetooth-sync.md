@@ -68,7 +68,7 @@ sequenceDiagram
 | `{"t":"done"}` | I've sent everything from the first exchange. |
 | `{"t":"admin","config":{…},"schedules":[…]}` | Newer laptop settings. |
 
-`<record>` is the same JSON as in [Tablet database](../database/tablet-database.md#scout_records).
+`<record>` is the same JSON as in [Tablet database](../database/tablet-database.md).
 
 ## The code
 
@@ -96,7 +96,9 @@ receives events on `chicken_scratch/bluetooth_events` (`connected`,
 | Data missing on one tablet | It wasn't connected when that match was submitted. Reconnect; the manifest exchange catches it up. |
 | Works in testing, not at the venue | Lots of Bluetooth around. Keep tablets near the master; use the QR backup if needed. |
 
-!!! info "Tested how?"
-    The sync rules (manifest differences, merging) are covered by
-    `test/scout_data_store_test.dart`. The Bluetooth radio itself can only be
-    tested on real tablets.
+```{admonition} Tested how?
+:class: note
+The sync rules (manifest differences, merging) are covered by
+`test/scout_data_store_test.dart`. The Bluetooth radio itself can only be
+tested on real tablets.
+```

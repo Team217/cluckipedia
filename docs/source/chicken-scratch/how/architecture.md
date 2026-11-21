@@ -116,7 +116,7 @@ So **all link work runs on a background thread** (`LinkWorker` in
 `ui/worker.py`). The window asks it to do things by emitting Qt *signals*,
 and it reports back with signals (log lines, progress, results). Each thread
 has its own `Store` (database connection). See
-[Python and Qt crash course](python-qt-primer.md#threads-and-signals).
+[Python and Qt crash course](python-qt-primer.md).
 
 ## How a record is identified everywhere
 

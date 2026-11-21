@@ -60,7 +60,7 @@ position (`x`, `y`) and size (`w`, `h`) in grid cells, and a `settings` map
 - **`compactLayout`**: slides tiles up to fill gaps.
 
 Dashboards are stored as JSON in the tablet database's `dashboards` table
-(see [Tablet database](../database/tablet-database.md#dashboards)). They
+(see [Tablet database](../database/tablet-database.md)). They
 aren't synced.
 
 ## Colours

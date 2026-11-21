@@ -12,7 +12,7 @@ chicken_scratch/
 ├── tool/                ← a helper used by the companion's tests
 ├── pubspec.yaml         ← app name, version, packages, assets
 ├── companion/           ← the laptop app (see Companion code tour)
-└── docs/ + mkdocs.yml   ← this documentation
+└── docs/               ← this documentation (published in Cluckipedia)
 ```
 
 ## `lib/`: the app
@@ -66,7 +66,7 @@ The game-specific pages (**bold** above) are what changes each season. See
 | File | What |
 |---|---|
 | **`scout_data_model.dart`** | `ScoutData`: every field for the match being scouted, `toMap()` (what gets saved), loading, and `writeFile()` (saves to the JSON file **and** the database). |
-| `match_model.dart` | `FRCMatch`: one scheduled match. *Note the red/blue swap*, explained in [Files on the tablet](../database/files.md#matchschedules). |
+| `match_model.dart` | `FRCMatch`: one scheduled match. *Note the red/blue swap*, explained in [Files on the tablet](../database/files.md). |
 | `events_model.dart` | An event from The Blue Alliance. |
 | `tba.dart` | Downloads events and matches from The Blue Alliance. |
 | `globals.dart` | The built-in scouter list and passcode (replaced by laptop settings when sent). |

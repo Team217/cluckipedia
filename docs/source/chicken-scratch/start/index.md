@@ -13,3 +13,15 @@ never written a program. Read the pages in order:
 
 After that, [Using the apps](../use/index.md) shows every screen, and
 [How it works](../how/index.md) explains the code.
+
+```{rubric} Table of contents
+```
+
+```{toctree}
+:maxdepth: 1
+
+big-picture
+glossary
+install-tools
+first-day
+```

@@ -147,7 +147,9 @@ git push -u origin add-teleop-passes
 
 and open a pull request ([Git and teamwork](git-workflow.md)).
 
-!!! success "What you didn't have to touch"
-    The database, Bluetooth sync, the LoRa/TCP link, CSV export and the whole
-    companion app. They all carry the `data` JSON as it is, which is why the
-    project stores game fields that way.
+```{admonition} What you didn't have to touch
+:class: tip
+The database, Bluetooth sync, the LoRa/TCP link, CSV export and the whole
+companion app. They all carry the `data` JSON as it is, which is why the
+project stores game fields that way.
+```

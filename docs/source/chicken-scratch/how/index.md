@@ -15,3 +15,21 @@ and *why*, so you can change things without breaking something far away.
 | [Admin settings](admin-settings.md) | You're changing what the laptop pushes to tablets. |
 | [Dashboards inside](dashboards-internals.md) | You're changing stats or tiles. |
 | [Look and feel (theme)](theme.md) | You're changing colours or styling. |
+
+```{rubric} Table of contents
+```
+
+```{toctree}
+:maxdepth: 1
+
+architecture
+flutter-dart-primer
+python-qt-primer
+tablet-code-tour
+companion-code-tour
+bluetooth-sync
+desktop-link
+admin-settings
+dashboards-internals
+theme
+```

@@ -26,11 +26,13 @@ You should see a long list ending with something like
 [Known issues](../maintain/known-issues.md)). Anything else failing means
 something is wrong with your setup or a recent change.
 
-!!! tip "What did that just do?"
-    Each file in `test/` checks part of the app, without a tablet: saving and
-    syncing records, the LoRa protocol, the dashboards, the admin settings,
-    and rendering every screen. [Testing](../maintain/testing.md) explains
-    them.
+```{admonition} What did that just do?
+:class: tip
+Each file in `test/` checks part of the app, without a tablet: saving and
+syncing records, the LoRa protocol, the dashboards, the admin settings,
+and rendering every screen. [Testing](../maintain/testing.md) explains
+them.
+```
 
 ## 3. Set up and test the companion app
 
@@ -85,11 +87,13 @@ The first build takes several minutes. While `flutter run` is going, press
 **r** in the terminal to *hot reload* after editing code: the change appears
 on the tablet in about a second without restarting the app.
 
-!!! note "No tablet?"
-    You can still do everything else: the tests render every screen, and the
-    screenshots in [Tablet app](../use/tablet-app.md) come from those tests.
-    The emulator in Android Studio (**Device Manager**) also works, but it has
-    no Bluetooth.
+```{admonition} No tablet?
+:class: note
+You can still do everything else: the tests render every screen, and the
+screenshots in [Tablet app](../use/tablet-app.md) come from those tests.
+The emulator in Android Studio (**Device Manager**) also works, but it has
+no Bluetooth.
+```
 
 ## 6. Make a small change
 

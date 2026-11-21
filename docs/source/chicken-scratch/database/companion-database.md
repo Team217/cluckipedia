@@ -97,7 +97,7 @@ The tables fall into four groups:
 ## `scout_records`
 
 The same record as on the tablet (see
-[Tablet database](tablet-database.md#scout_records)), plus three laptop-only
+[Tablet database](tablet-database.md)), plus three laptop-only
 columns.
 
 | Column | Type | Meaning | Example |

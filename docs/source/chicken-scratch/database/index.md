@@ -39,3 +39,17 @@ flowchart LR
 The same **record** (event, match, team, scout, station, device, edit time,
 and a JSON `data` field) exists in both databases and travels between them
 unchanged.
+
+```{rubric} Table of contents
+```
+
+```{toctree}
+:maxdepth: 1
+
+basics
+tablet-database
+companion-database
+scouting-data
+files
+querying
+```

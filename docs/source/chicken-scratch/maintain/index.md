@@ -25,3 +25,20 @@ Recipes for the jobs that come up.
 5. **Update the docs in the same change** as the code.
 6. **Test on a real tablet** before an event, especially Bluetooth and the
    LoRa/TCP link, which the automated tests can't fully cover.
+
+```{rubric} Table of contents
+```
+
+```{toctree}
+:maxdepth: 1
+
+new-season
+add-a-field
+add-metric-or-tile
+testing
+build-and-install
+git-workflow
+troubleshooting
+known-issues
+updating-docs
+```

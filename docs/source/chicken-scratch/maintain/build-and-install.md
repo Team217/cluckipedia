@@ -16,42 +16,48 @@ The first build takes several minutes; later ones are faster.
 Before building a version for an event, bump `version:` in `pubspec.yaml`
 (e.g. `0.1.0` → `0.2.0`) so you can tell builds apart.
 
-!!! danger "Build from the same computer every time"
-    Release builds are currently signed with the **debug key of the computer
-    that builds them** (see `android/app/build.gradle`). Android only lets an
-    update install over an app signed with the same key. An APK built on a
-    *different* computer fails with "App not installed" or "signatures do not
-    match". The only way round that is **uninstalling, which deletes the
-    tablet's data**.
+```{admonition} Build from the same computer every time
+:class: danger
+Release builds are currently signed with the **debug key of the computer
+that builds them** (see `android/app/build.gradle`). Android only lets an
+update install over an app signed with the same key. An APK built on a
+*different* computer fails with "App not installed" or "signatures do not
+match". The only way round that is **uninstalling, which deletes the
+tablet's data**.
 
-    So: pick one "build computer", or set up a shared release key (see
-    [Known issues](known-issues.md#release-signing)). If you must uninstall,
-    **sync the tablet to the laptop first** and restore afterwards.
+So: pick one "build computer", or set up a shared release key (see
+[Known issues](known-issues.md)). If you must uninstall,
+**sync the tablet to the laptop first** and restore afterwards.
+```
 
 ## Install on a tablet
 
-=== "USB cable (recommended)"
+**USB cable (recommended)**
 
-    With USB debugging on (see [Your first day](../start/first-day.md#5-run-the-tablet-app)):
 
-    ```powershell
-    flutter install
-    ```
+With USB debugging on (see [Your first day](../start/first-day.md)):
 
-    or, with the Android SDK's `adb`:
+```powershell
+flutter install
+```
 
-    ```powershell
-    adb install -r build\app\outputs\flutter-apk\app-release.apk
-    ```
+or, with the Android SDK's `adb`:
 
-    `-r` replaces the existing app and **keeps its data**.
+```powershell
+adb install -r build\app\outputs\flutter-apk\app-release.apk
+```
 
-=== "Copy the file"
+`-r` replaces the existing app and **keeps its data**.
 
-    1. Copy the APK to the tablet (USB file transfer, Google Drive, …).
-    2. Open it in the tablet's **Files** app.
-    3. Allow "install unknown apps" for Files when Android asks.
-    4. **Update**. Data is kept.
+
+**Copy the file**
+
+
+1. Copy the APK to the tablet (USB file transfer, Google Drive, …).
+2. Open it in the tablet's **Files** app.
+3. Allow "install unknown apps" for Files when Android asks.
+4. **Update**. Data is kept.
+
 
 Repeat on all six tablets. Then open the app on each and check the version
 under **Settings → Apps → Chicken Scratch**.
@@ -83,5 +89,5 @@ laptop.
 
 There's nothing to build: it runs from the source with Python. To set it up
 on another laptop, copy (or `git clone`) the project and follow
-[Your first day](../start/first-day.md#3-set-up-and-test-the-companion-app).
+[Your first day](../start/first-day.md).
 Copy `scouting.db` across too if you want the existing data.

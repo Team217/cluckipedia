@@ -7,35 +7,39 @@ for comparison.
 ## Home screen
 
 What you see depends on whether the tablet is the **master** (set in
-[Settings](#settings)).
+Settings, below).
 
-=== "Scouting tablet"
+**Scouting tablet**
 
-    ![Scouting tablet home](../images/tablet/home_student.png)
 
-    | Tile | What it does |
-    |---|---|
-    | **View Events** | Start here to scout: pick the event, then a match. |
-    | **Automatic Scouting [BETA]** | A joke button. It tells you to get back to scouting. |
-    | **Get Current Matches** | Downloads the schedule for the *current competition* (set in Settings) from The Blue Alliance. Needs internet. Usually not needed: the laptop pushes schedules (see [Admin settings](../how/admin-settings.md)). |
-    | **Dashboards** | The analysis screens. See [Dashboards](dashboards.md). |
-    | **Bluetooth Sync** | Connect to the master and swap data. |
-    | **Export CSV** | Save the data as a spreadsheet file and share it. |
+![Scouting tablet home](../images/tablet/home_student.png)
 
-=== "Master tablet"
+| Tile | What it does |
+|---|---|
+| **View Events** | Start here to scout: pick the event, then a match. |
+| **Automatic Scouting [BETA]** | A joke button. It tells you to get back to scouting. |
+| **Get Current Matches** | Downloads the schedule for the *current competition* (set in Settings) from The Blue Alliance. Needs internet. Usually not needed: the laptop pushes schedules (see [Admin settings](../how/admin-settings.md)). |
+| **Dashboards** | The analysis screens. See [Dashboards](dashboards.md). |
+| **Bluetooth Sync** | Connect to the master and swap data. |
+| **Export CSV** | Save the data as a spreadsheet file and share it. |
 
-    ![Master tablet home](../images/tablet/home_admin.png)
 
-    | Tile | What it does |
-    |---|---|
-    | **Get Matches** | Downloads every event for the team and year (from Settings) and their schedules, from The Blue Alliance. Needs internet. |
-    | **Sync With Workers** | Scan scouts' QR codes with the camera (the no-Bluetooth backup). |
-    | **View Events** | Same as on scouting tablets. |
-    | **Dashboards** | The analysis screens. |
-    | **Bluetooth Sync** | Host the sync that the other tablets connect to. |
-    | **Desktop Link** | Connect to the laptop over LoRa or TCP. |
-    | **Export CSV** | Spreadsheet export. |
-    | **Free Ice Cream** | Another joke. |
+**Master tablet**
+
+
+![Master tablet home](../images/tablet/home_admin.png)
+
+| Tile | What it does |
+|---|---|
+| **Get Matches** | Downloads every event for the team and year (from Settings) and their schedules, from The Blue Alliance. Needs internet. |
+| **Sync With Workers** | Scan scouts' QR codes with the camera (the no-Bluetooth backup). |
+| **View Events** | Same as on scouting tablets. |
+| **Dashboards** | The analysis screens. |
+| **Bluetooth Sync** | Host the sync that the other tablets connect to. |
+| **Desktop Link** | Connect to the laptop over LoRa or TCP. |
+| **Export CSV** | Spreadsheet export. |
+| **Free Ice Cream** | Another joke. |
+
 
 **Top bar:** ↻ re-reads the settings; the **lock** asks for the admin
 passcode and unlocks the **☰ menu**, which has **Settings**.
@@ -47,7 +51,7 @@ passcode and unlocks the **☰ menu**, which has **Settings**.
 **View Events** lists every event that has a schedule on this tablet. Tap
 one to see its matches.
 
-![Events](../images/tablet/events.png){ width="640" }
+![Events](../images/tablet/events.png)
 
 ![Match list](../images/tablet/match_list.png)
 
@@ -108,10 +112,12 @@ Count the fuel scored during teleop, the same way as in auton.
   Bluetooth isn't working.
 - **Submit** saves and returns to the match list.
 
-!!! info "Data is saved as you go"
-    Every swipe between pages saves. Pressing Back asks "Do you want to exit
-    this match?" and keeps what you've entered. Opening the match again
-    brings it back.
+```{admonition} Data is saved as you go
+:class: note
+Every swipe between pages saves. Pressing Back asks "Do you want to exit
+this match?" and keeps what you've entered. Opening the match again
+brings it back.
+```
 
 ## Bluetooth Sync
 

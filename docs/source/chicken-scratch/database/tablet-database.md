@@ -53,7 +53,7 @@ One row per robot per match: the **record**.
 | `team_number` | INTEGER | yes | The robot's team. | `217` |
 | `scout_name` | TEXT | no | Who scouted it (from the Pre-match page). | `Doe, Jane` |
 | `station` | TEXT | no | Which station the scouting tablet was set to. | `Red 2` |
-| `device_id` | TEXT | no | Random ID of the tablet that **last edited** this record (see [`meta`](#meta)). Used to break ties in the merge rule. | `a1b2c3d4e5f60718` |
+| `device_id` | TEXT | no | Random ID of the tablet that **last edited** this record (see `meta` below). Used to break ties in the merge rule. | `a1b2c3d4e5f60718` |
 | `updated_at` | INTEGER | yes | When it was last edited, in milliseconds since 1 Jan 1970 (UTC). **The newest edit wins** during sync. | `1763650000123` |
 | `data` | TEXT (JSON) | yes | The game-specific scouting data. See [Scouting data by season](scouting-data.md). | `{"auton":{…},"teleop":{…},"endgame":{…},"name":"Doe, Jane"}` |
 | `local_rev` | INTEGER | yes (default 0) | **Change counter.** Each write gets the next number on *this* tablet. The laptop asks for "everything since change N". | `431` |
@@ -74,7 +74,7 @@ One row per robot per match: the **record**.
 
 `mergeRemote` applies the **merge rule**: an incoming record replaces the
 stored one only if its `updated_at` is newer (or equal with a "larger"
-`device_id`). See [Architecture](../how/architecture.md#the-merge-rule).
+`device_id`). See [Architecture](../how/architecture.md).
 
 ### How rows get read
 
@@ -152,6 +152,8 @@ Small named values, one per row (`key` → `value`, both text).
    database, opens it with the new code, and checks nothing was lost.
 5. Update this page.
 
-!!! tip "You usually don't need to"
-    Season changes go in the `data` JSON, not new columns. Only change the
-    schema for something every season needs.
+```{admonition} You usually don't need to
+:class: tip
+Season changes go in the `data` JSON, not new columns. Only change the
+schema for something every season needs.
+```
