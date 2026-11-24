@@ -25,6 +25,8 @@ Use this checklist as a quick reference to ensure your subsystem meets the requi
 - [ ] Filtering of velocity feedback. LinearFilter (WPI)
 - [ ] Setup Setpoints to use Enum or data class. This reduces the risk of typos or "mystery constants/doubles" in code.
 - [ ] Java Units Classes (Distance, Angle, Velocity, Etc.).
+- [ ] Distance-to-speed lookup table for shooters.
+- [ ] Coast neutral mode.
 - [ ] Simulation of subsystem.
 - [ ] Integration with SysID.
 
@@ -34,4 +36,5 @@ Use this checklist as a quick reference to ensure your subsystem meets the requi
 | Date       | Author | Description                         |
 | ---------- | ------ | ----------------------------------- |
 | 09/02/2026 | AK     | Initial Release                     |
+| 11/23/2026 | GV     | Added shot table & coast mode       |
 |            |        |                                     |

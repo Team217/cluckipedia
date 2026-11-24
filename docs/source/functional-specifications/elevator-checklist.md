@@ -36,9 +36,28 @@ Use this checklist as a quick reference to ensure your subsystem meets the requi
     - [ ] Pneumatic solenoid. 
 
 
+## Climber Ratchet & Safety Functions
+
+- [ ] Drive method refuses to drive against an engaged ratchet.
+- [ ] Ratchet release only by explicit command; blocked while hanging.
+- [ ] Endgame lockout (button combination or match time).
+- [ ] Higher current limits & brake mode for climbing loads.
+- [ ] Stop at the climbed position (limit switch or current detection).
+- [ ] Log ratchet state & climb state.
+
+
+## Telescoping Arm Functions
+
+- [ ] Extension gravity feedforward scaled by sin(pivot angle).
+- [ ] Maximum extension limited by pivot angle (frame perimeter / height).
+- [ ] Retract before rotating (superstructure).
+- [ ] Homing at power on.
+
+
 ## Revision History
 
 | Date       | Author | Description                         |
 | ---------- | ------ | ----------------------------------- |
 | 09/02/2026 | AK     | Initial Release                     |
+| 11/23/2026 | GV     | Added climber safety & telescoping arm |
 |            |        |                                     |

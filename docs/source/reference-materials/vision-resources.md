@@ -1,14 +1,18 @@
 # Vision Resources
 
+Hardware reference for cameras, lenses, and coprocessors. To learn how vision works in our code,
+see [Odometry & Vision](../training-materials/swerve/vision.md) for AprilTags and
+[Object Detection](../training-materials/object-detection/overview.md) for finding game pieces.
+
 ## Contents
 - [Sensor Models:](#sensor-models)
   - [OV9281](#ov9281)
   - [OV9782](#ov9782)
   - [AR0135CS](#ar0135cs)
 - [Camera Models:](#camera-models)
-  - [ArduCam B0332 | OV9281 ~$50](#arducam-b0332-ov9281-~50)
-  - [InnoMaker U20CAM-9281M | OV9281 ~$30](#innomaker-u20cam-9281m-ov9281-~30)
-  - [ArduCam B0385 | OV9782 ~$60](#arducam-b0385-ov9782-~60)
+  - [ArduCam B0332 | OV9281 ~$50](#arducam-b0332--ov9281-50)
+  - [InnoMaker U20CAM-9281M | OV9281 ~$30](#innomaker-u20cam-9281m--ov9281-30)
+  - [ArduCam B0385 | OV9782 ~$60](#arducam-b0385--ov9782-60)
   - [Allied Vision Alvium 1800 U-120c](#allied-vision-alvium-1800-u-120c)
 - [ArduCam Lens Options](#arducam-lens-options)
   - [M2016ZH01: 10° FOV on PiCam](#m2016zh01-10-fov-on-picam)
@@ -84,7 +88,7 @@ Specifications:
 Specifications:
 - Field of View (FOV): 70 degrees (H)
 - Lens Mount: M12
-- We source ours through [EdmundOptics]((https://www.edmundoptics.com/p/Allied-Vision-Alvium-1800-U-120c-13-12MP-S-Mount-USB-31-Color-Camera/42978?gad_source=1&gad_campaignid=13119664528&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJXOe8ENJLFAVuRY7BWkGEp8bWYOKhWRI6bgxAd66MUWJMI1muU7UPBoCaXEQAvD_BwE))
+- We source ours through [EdmundOptics](https://www.edmundoptics.com/p/Allied-Vision-Alvium-1800-U-120c-13-12MP-S-Mount-USB-31-Color-Camera/42978?gad_source=1&gad_campaignid=13119664528&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJXOe8ENJLFAVuRY7BWkGEp8bWYOKhWRI6bgxAd66MUWJMI1muU7UPBoCaXEQAvD_BwE)
 
 ## ArduCam Lens Options
 ### [M2016ZH01](https://www.arducam.com/m2016zh01-2.html): 10° FOV on PiCam
@@ -231,10 +235,12 @@ Specifications:
 ## Co-Processor Models
 ### [OrangePi 5](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5.html)
  - The main advantage to the OrangePi over the RaspberryPi is the integrated NPU, this allows us to do Machine Learning based object detection.
+ - Object detection models must be converted to **`.rknn`** format (640×640, quantized YOLOv5/v8/v11 as of the 2026 PhotonVision docs). See [Convert the model](../training-materials/object-detection/training.md#convert-the-model).
 
 ### [RaspberryPi 5](https://www.raspberrypi.com/products/raspberry-pi-5/)
 
 ### [Qualcomm Rubik Pi 3](https://www.thundercomm.com/product/rubik-pi/#versions)
+ - Also has an NPU for object detection. Models use the **`.tflite`** format, converted with a separate PhotonVision notebook. See [Convert the model](../training-materials/object-detection/training.md#convert-the-model).
 
 ### Misc. Hardware
 - [DC-DC Multi-output Buck Converter](https://www.digikey.com/short/fbzc2rjd)

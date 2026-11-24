@@ -21,9 +21,30 @@ Use this checklist as a quick reference to ensure your subsystem meets the requi
 - [ ] Integration with SysID. Characterizes motor performance.
 
 
+## Intake Functions
+
+- [ ] Game piece sensor (beam break, CANrange, or current detection).
+- [ ] End intake command or drop to hold speed on detection.
+- [ ] Block intaking when at the game piece limit.
+- [ ] Rollers only run while deployed; stow when the command ends.
+- [ ] Eject command.
+- [ ] Log sensor & deploy state.
+
+
+## Indexer Functions
+
+- [ ] Game piece sensors at entry & staging positions.
+- [ ] Stage pieces before the shooter.
+- [ ] Feed only when the scoring mechanism is ready.
+- [ ] Count pieces held.
+- [ ] Jam detection & reverse.
+- [ ] Log sensors, piece count, and state.
+
+
 ## Revision History
 
 | Date       | Author | Description                         |
 | ---------- | ------ | ----------------------------------- |
 | 09/02/2026 | AK     | Initial Release                     |
+| 11/23/2026 | GV     | Added intake & indexer functions    |
 |            |        |                                     |

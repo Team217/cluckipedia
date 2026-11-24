@@ -222,7 +222,6 @@ Much like our scaling to the voltage ouput we did with our setVoltage command in
     ...
     public static final double kRPM = 240;
     public static final double kMaxVelocity = (kWheelPerimeter * kRPM) / 60.0; // Meters / second.
-    ```
   }
 ```
 

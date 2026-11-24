@@ -36,6 +36,8 @@ Use this checklist as a quick reference to ensure your subsystem meets the requi
 - [ ] Motor or servo to drive the hood.
     - [ ] If servo take in argument from constructor?
 - [ ] Limit switch. Lower limit/home position.
+- [ ] Homing to the limit switch or hard stop at startup.
+- [ ] Follow an angle from a supplier (distance shot table).
 
 
 ## Turret Functions
@@ -45,6 +47,9 @@ Use this checklist as a quick reference to ensure your subsystem meets the requi
     - [ ] Dual absolute encoder.
     - [ ] 10 turn potentiometer.
 - [ ] Chinese Remainder Theorem (CRT) dual encoder position tracking.
+- [ ] Choose a target angle inside the travel limits; report not on target when unreachable.
+- [ ] Field-relative aiming with robot angular velocity feedforward.
+- [ ] Log requested field angle, chosen turret angle, and reachability.
 
 
 ## Revision History
@@ -52,4 +57,5 @@ Use this checklist as a quick reference to ensure your subsystem meets the requi
 | Date       | Author | Description                         |
 | ---------- | ------ | ----------------------------------- |
 | 09/02/2026 | AK     | Initial Release                     |
+| 11/23/2026 | GV     | Added hood & turret items           |
 |            |        |                                     |

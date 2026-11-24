@@ -104,9 +104,14 @@ We used this `::` method reference operator to pass in a reference to the functi
 
 Now need to create a function that will allow us to actually drive this robot. You'll notice the motors  & differential drive have the word `private` in front of them, this prevents outside access to them directly (safe to prevent unauthorized use of the motor/drive). So inorder to control these motors we need a function that we can call. We'll add our function in between the constructor and the periodic functions at the bottom of the file.
 
-There are two common ways of controlling a "differential drive" robot. With tank drive the X axis of each joystick is mapped to the motors on their respective sides. For arcade drive the forward movement is mapped to the X axis and rotation is mapped to the Y axis. This is typically split across two joysticks but can be combined into one as well. Below is a diagram to further illustrate this concept.
+There are two common ways of controlling a "differential drive" robot. With tank drive the Y axis (forward/back) of each joystick is mapped to the motors on their respective sides. For arcade drive the forward movement is mapped to one stick's Y axis and rotation is mapped to the other stick's X axis. This is typically split across two joysticks but can be combined into one as well.
 
-![DriveControlStyles.jpg](:/e0671889891244e2b836e28a9d6bfaf3)
+| Control style | Left stick | Right stick |
+|---|---|---|
+| Tank | Y axis: left side wheels | Y axis: right side wheels |
+| Arcade | Y axis: forward/back speed | X axis: turning |
+
+(In WPILib, pushing a stick **forward** gives a **negative** Y value, so drive code usually uses `-controller.getLeftY()`.)
 
 Transitioning back to our functions, the `DifferentialDrive` class supports both of these drive styles. The functions we're creating here are very simple, we pass arguments that match the `arcadeDrive` or `tankDrive` arguments of `DifferentialDrive`. Below is the implementation of these functions. You'll note they are `public` functions meaning that we can access them from outside the subsystem. This is the key to later controlling the robot.
 

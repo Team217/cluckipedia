@@ -4,14 +4,9 @@
 Functional Specifications
 ================================
 
-This section of the documentation covers software Functional Specifications used by ThunderChickens for developmentW.
+This section of the documentation covers software Functional Specifications used by ThunderChickens for development.
 
-## WIP Checklists:
-- Swerve Checklist
-- Servo Checklist
-- Pneumatic Checklist
-- Vision Checklist
-- LED Checklist
+The **Subsystem Functional Spec** describes what every kind of subsystem must do. Each checklist below is a quick reference for one subsystem type and its variants (for example the pivot checklist also covers hoods and turrets). The :ref:`training-materials` explain how to build them.
 
 .. rubric:: Table of contents
 
@@ -29,3 +24,4 @@ This section of the documentation covers software Functional Specifications used
     pneumatic-checklist.md
     vision-checklist.md
     led-checklist.md
+    superstructure-checklist.md

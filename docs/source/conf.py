@@ -19,6 +19,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     "myst_parser",
     "sphinxcontrib.mermaid",
+    "sphinx_copybutton",
 ]
 
 intersphinx_mapping = {
@@ -35,6 +36,16 @@ html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
+
+# -- Options for MyST Markdown
+# colon_fence: ::: admonitions; tasklist: - [ ] checklists; deflist: definition lists;
+# attrs_inline: {kbd} and other inline attributes.
+myst_enable_extensions = ["colon_fence", "tasklist", "deflist", "attrs_inline"]
+# Generate anchors for headings (levels 1-4) so pages can link to a section: page.md#section-name
+myst_heading_anchors = 4
+
+# -- Options for sphinx-copybutton: don't copy prompts or output markers
+copybutton_exclude = ".linenos, .gp, .go"
 
 # -- Options for mermaid diagram support.
 myst_fence_as_directive = ["mermaid"]
